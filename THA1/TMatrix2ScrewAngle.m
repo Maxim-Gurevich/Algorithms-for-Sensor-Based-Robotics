@@ -11,6 +11,7 @@ p= T(1:3,4);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if R==eye(3)
     theta=0;
+    omega=1/(2*sin(theta))*(R-transpose(R));
 elseif trace(R)==-1
     theta=pi;
     omega=(1/sqrt(2*(1+R(3,3))))*[R(1,3);R(2,3);1+R(3,3)];
@@ -27,12 +28,14 @@ else
     
     omega=(1/(2*sin(theta)))*(R-transpose(R));
 end
-
+omega=[0 -omega(3) omega(2);
+    omega(3) 0 -omega(1);
+    -omega(2) omega(1) 0];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculate v
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-v=(1/theta*eye-1/2*omega+...
-    (1/theta-1/2*cot(theta/2))*(omega^2))*p;
+v=(1/theta*eye-.5*omega+...
+    (1/theta-.5*cot(theta/2))*(omega^2))*p;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Construct S
