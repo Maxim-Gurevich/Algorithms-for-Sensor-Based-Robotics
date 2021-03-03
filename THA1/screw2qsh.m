@@ -9,6 +9,6 @@ v_l = sqrt(v(1)^2+v(2)^2+v(3)^2);
 
 s = w3/w_l;
 h = v_l/w_l;
-q = cross(s,v);
+q = cross(w3,v);
 end
 
