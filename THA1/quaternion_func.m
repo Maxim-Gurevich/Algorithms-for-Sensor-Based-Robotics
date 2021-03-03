@@ -1,6 +1,11 @@
 function [f,valid] = quaternion_func(R)
-%QUATERNION_FUNC Summary of this function goes here
-%   Detailed explanation goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Determine quaternion and validity from a rotation matrix
+% Input: A square matrix (nxn)
+% Output: Quaternion/Statement if input matrix is valid rotation matrix 
+% Date: 3/1/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     dim = size(R);
     quaternion = [0 0 0 0];
     if (length(dim)~=2 | dim(1)~=dim(2) | det(R)~=1 | dim(1)~=3)

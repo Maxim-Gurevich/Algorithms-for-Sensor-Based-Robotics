@@ -1,5 +1,11 @@
 function R=AxisAngle2RotMat(ax,ay,az,angle)
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculating Rotation Matrix from Axis Angle format
+% Input: Axis and Angle(Theta)
+% Output: Rotation Matrix (3x3)
+% Date: 3/2/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %find magnitude of vector
 mag=sqrt(ax^2+ay^2+az^2);
 

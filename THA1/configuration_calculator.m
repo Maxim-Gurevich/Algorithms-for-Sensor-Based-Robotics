@@ -1,6 +1,12 @@
 function [config_1,config_2,config_3,config_4] = configuration_calculator(screw,theta,Tinit)
-%UNTITLED Summary of this function goes here
-%   Screw format is [[w],v;0,0] : theta is in radians
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculating 3 intermediate configurations and final
+% configuration
+% Input: Screw Matrix (4x4), Theta (Radians), Initial Configuration (4x4)
+% Output: 4 configuration matrices from screw transform
+% Date: 3/1/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 theta1 = theta/4;
 theta2 = theta/2;

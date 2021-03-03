@@ -1,4 +1,13 @@
 function [S, theta]=RotTrans2ScrewAngle(R,p)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculating screw matrix from rotation matrix and
+% translation vector
+% Input: Valid R(3x3) and p(3x1)
+% Output: Screw Matrix (4x4) and Theta (Radians)
+% Date: 3/3/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Matrix Logarithm of Rotations

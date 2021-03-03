@@ -1,6 +1,12 @@
 function [angle,axis,valid] = angle_axis_func(R)
-%ANGLE_AXIS_FUNC Summary of this function goes here
-%   Detailed explanation goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculating angle and axis from rotation matrix
+% Input: Square Matrix (nxn)
+% Output: Validity of input matrix as rotation matrix and angle axis
+% representation if so
+% Date: 3/1/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     dim = size(R);
     if (length(dim)~=2 | dim(1)~=dim(2) | det(R)~=1)
          valid = "Not valid R";

@@ -1,5 +1,11 @@
-% QUESTION_3 Summary of this function goes here
-%   Detailed explanation goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Plotting screw operation
+% Settable parameters: q,s,h,theta,Tinit
+% Output: Plotting of configurations and screw axis from last config to
+% origin
+% Date: 3/3/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %function [outputArg1,outputArg2] = Question_3(q,s_hat,h,theta,Tinit)
 

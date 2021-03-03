@@ -1,4 +1,12 @@
 function [S, theta]=TMatrix2ScrewAngle(T)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculating screw matrix 4x4 and theta from transform
+% Input: Valid Transformation Matrix (4x4)
+% Output: Screw Matrix (4x4) and Theta (Radians)
+% Date: 3/3/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Extract R, p from T

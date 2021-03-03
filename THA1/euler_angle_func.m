@@ -1,6 +1,11 @@
 function [ZYZ_angles,ZYX_angles,valid] = euler_angle_func(R)
-%EULER_ANGLE_FUNC Summary of this function goes here
-%   Detailed explanation goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculating euler angles ZYZ and ZYX
+% Input: Square Matrix (nxn)
+% Output: Validity of input as rotation matrix and euler angles if so
+% Date: 3/3/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     dim = size(R);
     zyz_angles = [0 0 0];
     zyx_angles = [0 0 0];
