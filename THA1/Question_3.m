@@ -8,8 +8,8 @@ clc
 clear all
 
 
-q=[1 2 3];
-s_hat=[3 2 1];
+q=[0 2 0];
+s_hat=[0 0 1];
 h=2;
 theta=pi;
 Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
@@ -31,11 +31,11 @@ screw=[0 -omega(3) omega(2) v(1);
 [orientation,valid]=quaternion_func(config_4(1:3,1:3));
 
 %plot
-size=500;
-tp = theaterPlot('XLimit',[-size size],...
-    'YLimit',[-size size],'ZLimit',[-size size]);
+%size=10;
+tp = theaterPlot()%'XLimit',[-size size],...
+    %'YLimit',[-size size],'ZLimit',[-size size]);
 op = orientationPlotter(tp,'DisplayName','Data',...
-    'LocalAxesLength',size/5);
+    'LocalAxesLength',2,'MarkerSize',2);
 
 orientations=cat(3,config_1(1:3,1:3),...
     config_2(1:3,1:3),config_3(1:3,1:3),...
