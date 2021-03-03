@@ -31,9 +31,15 @@ Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
 
 [S, theta2] = TMatrix2ScrewAngle(config_4);
 
-[orientation,valid]=quaternion_func(config_4(1:3,1:3));
+[q,s,h] = screw2qsh(S)
 
-%plot
+axispoints=zeros(50,3);
+interval=.1;
+for i=1:50
+    newpoint=q+s*interval*i;
+    axispoints(i,:)=newpoint;
+end
+axis_points_cell_array={axispoints}
 %initialize theater
 tp = theaterPlot();%'XLimit',[-size size],...
     %'YLimit',[-size size],'ZLimit',[-size size]);
@@ -52,8 +58,10 @@ positions=[transpose(config_1(1:3,4));...
 plotOrientation(op,orientations,positions);
 
 %plot screw axis
-detPlotter=detectionPlotter(tp);
-
+trajPlotter=trajectoryPlotter(tp,...
+    'DisplayName','Screw Axis', 'Linewidth', 1,...
+    'color', 'm');
+plotTrajectory(trajPlotter,axis_points_cell_array);
 
 
 
