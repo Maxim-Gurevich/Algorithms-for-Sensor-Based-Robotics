@@ -46,6 +46,4 @@ S=[omega v;
 
 
 
-
-
 end
