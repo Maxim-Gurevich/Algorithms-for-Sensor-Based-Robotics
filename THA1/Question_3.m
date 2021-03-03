@@ -33,7 +33,7 @@ Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
 
 [q,s,h] = screw2qsh(S);
 
-%generate points along screw axix (for plotting)
+%generate points along screw axis (for plotting)
 axispoints=zeros(50,3);
 interval=.1;
 for i=1:50
