@@ -1,7 +1,7 @@
 function [f,valid] = quaternion_func(R)
 %QUATERNION_FUNC Summary of this function goes here
 %   Detailed explanation goes here
-    dim = size(R);
+    dim = size(R)
     quaternion = [0 0 0 0];
     if (length(dim)~=2 | dim(1)~=dim(2) | det(R)~=1 | dim(1)~=3)
          valid = "Not valid R";
