@@ -31,22 +31,25 @@ screw=[0 -omega(3) omega(2) v(1);
 [orientation,valid]=quaternion_func(config_4(1:3,1:3));
 
 %plot
-%size=10;
-tp = theaterPlot()%'XLimit',[-size size],...
+%initialize theater
+tp = theaterPlot();%'XLimit',[-size size],...
     %'YLimit',[-size size],'ZLimit',[-size size]);
+    
+%plot body frames    
 op = orientationPlotter(tp,'DisplayName','Data',...
     'LocalAxesLength',2,'MarkerSize',2);
-
 orientations=cat(3,config_1(1:3,1:3),...
     config_2(1:3,1:3),config_3(1:3,1:3),...
-    config_4(1:3,1:3));
-
+    config_4(1:3,1:3));%S(1:3,1:3));
 positions=[transpose(config_1(1:3,4));...
     transpose(config_2(1:3,4));...
     transpose(config_3(1:3,4));...
-    transpose(config_4(1:3,4))];
-
+    transpose(config_4(1:3,4))];%...
+%    transpose(S(1:3,4))];
 plotOrientation(op,orientations,positions);
+
+%plot screw axis
+detPlotter=detectionPlotter(tp);
 
 
 
