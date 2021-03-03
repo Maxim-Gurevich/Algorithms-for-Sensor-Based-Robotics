@@ -31,16 +31,19 @@ Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
 
 [S, theta2] = TMatrix2ScrewAngle(config_4);
 
-[q,s,h] = screw2qsh(S)
+[q,s,h] = screw2qsh(S);
 
+%generate points along screw axix (for plotting)
 axispoints=zeros(50,3);
 interval=.1;
 for i=1:50
     newpoint=q+s*interval*i;
     axispoints(i,:)=newpoint;
 end
-axis_points_cell_array={axispoints}
-%initialize theater
+axis_points_cell_array={axispoints};
+
+%initialize theater (canvas on which objects are plotted)
+%size=10
 tp = theaterPlot();%'XLimit',[-size size],...
     %'YLimit',[-size size],'ZLimit',[-size size]);
     
@@ -49,12 +52,12 @@ op = orientationPlotter(tp,'DisplayName','Data',...
     'LocalAxesLength',2,'MarkerSize',2);
 orientations=cat(3,config_1(1:3,1:3),...
     config_2(1:3,1:3),config_3(1:3,1:3),...
-    config_4(1:3,1:3));%S(1:3,1:3));
+    config_4(1:3,1:3));
 positions=[transpose(config_1(1:3,4));...
     transpose(config_2(1:3,4));...
     transpose(config_3(1:3,4));...
-    transpose(config_4(1:3,4))];%...
-%    transpose(S(1:3,4))];
+    transpose(config_4(1:3,4))];
+labels={'theta/4';'theta/2';'3theta/4';'theta'};
 plotOrientation(op,orientations,positions);
 
 %plot screw axis
