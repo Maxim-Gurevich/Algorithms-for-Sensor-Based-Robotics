@@ -14,7 +14,7 @@ if R==eye(3)
     omega=1/(2*sin(theta))*(R-transpose(R));
 elseif trace(R)==-1
     theta=pi;
-    omega=(1/sqrt(2*(1+R(3,3))))*[R(1,3);R(2,3);1+R(3,3)]
+    omega=(1/sqrt(2*(1+R(3,3))))*[R(1,3);R(2,3);1+R(3,3)];
 else
     theta=acos(.5*(trace(R)-1));
     
@@ -30,7 +30,7 @@ else
 end
 omega=[0 -omega(3) omega(2);
     omega(3) 0 -omega(1);
-    -omega(2) omega(1) 0]
+    -omega(2) omega(1) 0];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculate v
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

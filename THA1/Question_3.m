@@ -8,8 +8,8 @@ clc
 clear all
 
 
-q=[0 2 0];
-s_hat=[0 0 1];
+q=[1 2 3];
+s_hat=[3 2 1];
 h=2;
 theta=pi;
 Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
@@ -28,10 +28,14 @@ screw=[0 -omega(3) omega(2) v(1);
 
 [S, theta2] = TMatrix2ScrewAngle(config_4);
 
-det(config_4(1:3,1:3))
-orientation=quaternion_func(config_4(1:3,1:3))
+[orientation,valid]=quaternion_func(config_4(1:3,1:3));
+
 %plot
-tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
+size=2;
+tp = theaterPlot('XLimit',[-size size],'YLimit',[-size size],...
+    'ZLimit',[-size size]);
 op = orientationPlotter(tp,'DisplayName','Data',...
     'LocalAxesLength',1);
-plotOrientation(op,orientation)%;config_2(1:3,1:3);config_3(1:3,1:3);config_4(1:3,1:3)])
+plotOrientation(op,cat(3,config_1(1:3,1:3),...
+    config_2(1:3,1:3),config_3(1:3,1:3),...
+    config_4(1:3,1:3)))
