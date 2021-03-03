@@ -6,6 +6,7 @@ function R=AxisAngle2RotMat(ax,ay,az,angle)
 % Date: 3/2/21 
 % Author: Maxim Gurevich
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %find magnitude of vector
 mag=sqrt(ax^2+ay^2+az^2);
 
