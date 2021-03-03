@@ -1,10 +1,18 @@
-function [outputArg1,outputArg2] = Question_3(q,s_hat,h,theta,Tinit)
-close all
-% type this into command line to run: 
-% Question_3([0 2 0],[0 0 1], 2, pi,[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1])
-
 % QUESTION_3 Summary of this function goes here
 %   Detailed explanation goes here
+
+%function [outputArg1,outputArg2] = Question_3(q,s_hat,h,theta,Tinit)
+
+close all
+clc
+clear all
+
+
+q=[0 2 0];
+s_hat=[0 0 1];
+h=2;
+theta=pi;
+Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
 
 %W4-L1: The Screw Interpertation of a Twist
 omega=s_hat;
@@ -27,4 +35,3 @@ tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
 op = orientationPlotter(tp,'DisplayName','Data',...
     'LocalAxesLength',1);
 plotOrientation(op,orientation)%;config_2(1:3,1:3);config_3(1:3,1:3);config_4(1:3,1:3)])
-end
