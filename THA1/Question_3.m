@@ -15,7 +15,7 @@ theta=pi;
 Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
 
 
-[screw,v]=qsh2screw(q,s_hat,2);
+screw=qsh2screw(q,s_hat,h);
 
 %W4-L1: The Screw Interpertation of a Twist
 %omega=s_hat;
@@ -36,8 +36,9 @@ Tinit=[1 0 0 2;0 1 0 0; 0 0 1 0;0 0 0 1];
 %generate points along screw axis (for plotting)
 axispoints=zeros(50,3);
 interval=.1;
+
 for i=1:50
-    newpoint=q+s*interval*i;
+    newpoint=transpose(q+s*interval*i);
     axispoints(i,:)=newpoint;
 end
 axis_points_cell_array={axispoints};
@@ -58,7 +59,7 @@ positions=[transpose(config_1(1:3,4));...
     transpose(config_2(1:3,4));...
     transpose(config_3(1:3,4));...
     transpose(config_4(1:3,4))];
-labels={'\theta/4';'\theta/2';'3\theta/4';'\theta'}
+labels={'\theta/4';'\theta/2';'3\theta/4';'\theta'};
 plotOrientation(op,orientations,positions,labels);
 
 %plot screw axis

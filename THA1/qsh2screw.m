@@ -1,4 +1,4 @@
-function [S,v]=qsh2screw(q,s_hat,h)
+function S=qsh2screw(q,s_hat,h)
 
 %W4-L1: The Screw Interpertation of a Twist
 omega=s_hat;

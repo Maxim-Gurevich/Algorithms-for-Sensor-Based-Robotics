@@ -18,7 +18,7 @@ elseif trace(R)==-1
 else
     theta=acos(.5*(trace(R)-1));
     
-    % make sure theta is between 0 and pi
+    % make sure theta is between 0 and pi (unnecessary?)
     while theta>=pi
         theta=theta-pi;
     end
@@ -34,7 +34,7 @@ omega=[0 -omega(3) omega(2);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculate v
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-v=(1/theta*eye-.5*omega+...
+v=(1/theta*eye(3)-.5*omega+...
     (1/theta-.5*cot(theta/2))*(omega^2))*p;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,8 +42,6 @@ v=(1/theta*eye-.5*omega+...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 S=[omega v;
     0 0 0 0];
-
-
 
 
 
