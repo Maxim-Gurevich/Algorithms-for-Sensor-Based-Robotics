@@ -67,8 +67,8 @@ Q2 = [.5 .5 .5 .5];
 close all
 Q1=[0 2 0];
 Q2=[2 0 0];
+Q3=[0 0 2];
 S1=[0 0 1];
-S2=[1 0 0];
 H1=2;
 H2=-2;
 theta1=pi;
@@ -79,7 +79,6 @@ Tinit2=[1 0 0 0;0 1 0 0;0 0 1 0;0 0 0 1];
 Question_3(Q1,S1,H1,theta1,Tinit1)
 Question_3(Q1,S1,H1,theta1,Tinit2)
 Question_3(Q1,S1,H2,theta1,Tinit1)
-Question_3(Q1,S2,H1,theta1,Tinit1)
 Question_3(Q2,S1,H1,theta1,Tinit1)
 Question_3(Q1,S1,H1,theta2,Tinit1)
 
