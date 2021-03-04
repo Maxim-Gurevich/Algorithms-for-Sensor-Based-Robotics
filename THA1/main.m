@@ -83,17 +83,42 @@ Question_3(Q2,S1,H1,theta1,Tinit1)
 Question_3(Q1,S1,H1,theta2,Tinit1)
 
 %%
-%3a. configuration_calculator.m
+%3a. qsh2screw.m
+Q1a=[0 2 0];
+Q2a=[0 0 0];
+S1a=[0 0 1];
+S2a=[1 0 0];
+H1a=2;
+H2a=0;
+
+a5 = qsh2screw(Q1a,S1a,H1a)
+b5 = qsh2screw(Q1a,S1a,H2a)
+c5 = qsh2screw(Q2a,S1a,H1a)
+d5 = qsh2screw(Q1a,S2a,H1a)
+
+%%
+%3b. configuration_calculator.m
 Screw1 = [0 0 3 0;0 0 0 1;-3 0 0 0;0 0 0 0];
 Screw2 = [0 0 0 0;0 0 0 1;0 0 0 0;0 0 0 0];
 Theta1 = 0;
 Theta2 = 1;
 Tinit = [0,-2,0,1;2,0,0,0;0,0,0,0;0,0,0,1];
 
-[a3,b3,c3,d3] = configuration_calculator(Screw1,Theta1,Tinit)
-[e3,f3,g3,h3] = configuration_calculator(Screw1,Theta2,Tinit)
-[i3,j3,k3,l3] = configuration_calculator(Screw2,Theta2,Tinit)
-[m3,n3,o3,p3] = configuration_calculator(Screw2,Theta1,Tinit)
+[a6,b6,c6,d6] = configuration_calculator(Screw1,Theta1,Tinit)
+[e6,f6,g6,h6] = configuration_calculator(Screw1,Theta2,Tinit)
+[i6,j6,k6,l6] = configuration_calculator(Screw2,Theta2,Tinit)
+[m6,n6,o6,p6] = configuration_calculator(Screw2,Theta1,Tinit)
+
+%%
+%3c. TMatrix2ScrewAngle.m
+clc
+T1=[1 0 0 1;0 1 0 1;0 0 1 1; 0 0 0 0];
+T2=[1 0 0 0;0 cos(2) -sin(2) 0;0 sin(2) cos(2) 0;0 0 0 0];
+T3=[1 0 0 1;0 cos(2) -sin(2) 1;0 sin(2) cos(2) 1;0 0 0 0];
+
+a7 = TMatrix2ScrewAngle(T1)
+b7 = TMatrix2ScrewAngle(T2)
+c7 = TMatrix2ScrewAngle(T3)
 %%
 %3b. screw2qsh.m
 S11 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
