@@ -137,14 +137,12 @@ b7 = RotTrans2ScrewAngle(R1a,P2a)
 c7 = RotTrans2ScrewAngle(R2a,P2a)
 %%
 %Math Bonus 10. Bonus_Math_10.m
-R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
-R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
-P1a=0;
-P2a=1;
+A1=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+A2=[1 2 3;4 5 6;7 8 9];
 
-a7 = RotTrans2ScrewAngle(R1a,P1a)
-b7 = RotTrans2ScrewAngle(R1a,P2a)
-c7 = RotTrans2ScrewAngle(R2a,P2a)
+
+[a8,b7] = Bonus_Math_10(A1)
+[c7,d7] = Bonus_Math_10(A2)
 %%
 %Bonus10a. Matrix_R.m
 R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
