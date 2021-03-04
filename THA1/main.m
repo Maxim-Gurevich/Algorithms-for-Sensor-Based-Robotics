@@ -111,7 +111,6 @@ Tinit = [0,-2,0,1;2,0,0,0;0,0,0,0;0,0,0,1];
 
 %%
 %3c. TMatrix2ScrewAngle.m
-clc
 T1=[1 0 0 1;0 1 0 1;0 0 1 1; 0 0 0 0];
 T2=[1 0 0 0;0 cos(2) -sin(2) 0;0 sin(2) cos(2) 0;0 0 0 0];
 T3=[1 0 0 1;0 cos(2) -sin(2) 1;0 sin(2) cos(2) 1;0 0 0 0];
@@ -120,9 +119,19 @@ a7 = TMatrix2ScrewAngle(T1)
 b7 = TMatrix2ScrewAngle(T2)
 c7 = TMatrix2ScrewAngle(T3)
 %%
-%3b. screw2qsh.m
+%3d. screw2qsh.m
 S11 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 S22 = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 
 [a4,b4,c4] = screw2qsh(S11)
 [d4,e4,f4] = screw2qsh(S22)
+%%
+%3d. RotTrans2ScrewAngle.m
+clc
+T1=[1 0 0 1;0 1 0 1;0 0 1 1; 0 0 0 0];
+T2=[1 0 0 0;0 cos(2) -sin(2) 0;0 sin(2) cos(2) 0;0 0 0 0];
+T3=[1 0 0 1;0 cos(2) -sin(2) 1;0 sin(2) cos(2) 1;0 0 0 0];
+
+a7 = TMatrix2ScrewAngle(T1)
+b7 = TMatrix2ScrewAngle(T2)
+c7 = TMatrix2ScrewAngle(T3)
