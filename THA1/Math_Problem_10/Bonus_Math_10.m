@@ -8,6 +8,8 @@ function [R,Matrix_Difference]=Bonus_Math_10(A)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 format short
 
+%stucture to keep track of resulting euler angles
+angles=[0 0 0];
 %structure to keep track of difference values
 Norms=[0 0;
        0 0;
@@ -53,7 +55,9 @@ for k=1:3
             lower=max(Norms(1,2),Norms(2,2));
             upper=min(Norms(1,2),Norms(2,2));
         end
+        %identiry size of range for the while loop
         range=abs(upper-lower);
+        %correction for when the angle crosses over zero
         while lower>2*pi
             lower=lower-2*pi;
         end
@@ -61,9 +65,11 @@ for k=1:3
             upper=upper-2*pi;
         end
         angles(k)=lower;
-        R=Matrix_R(angles);
+        %iterate i
         i=i+1;
     end
 end
-Matrix_Difference=Matrix_Difference_Norm(A,R);
+    %output
+    R=Matrix_R(angles);
+    Matrix_Difference=Matrix_Difference_Norm(A,R);
 end
