@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: Plotting screw operation
-% Settable parameters: q,s,h,theta,Tinit
+% Settable parameters: q(3x1),s(3x1),h,theta(Radians),Tinit(4x4)
 % Output: Plotting of configurations and screw axis from last config to
 % origin
 % Date: 3/3/21 
