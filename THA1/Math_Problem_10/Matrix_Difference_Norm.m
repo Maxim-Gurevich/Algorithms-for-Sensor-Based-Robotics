@@ -1,8 +1,8 @@
 function E=Matrix_Difference_Norm(A,R)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: Calculating rotation matrix from quaternion
-% Input: Valid Quaternion
-% Output: Rotation Matrix (3x3)
+% Description: Calculates the matrix difference norm
+% Input: two 3x3 matricies
+% Output: difference norm as float
 % Date: 3/3/21 
 % Author: Maxim Gurevich
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

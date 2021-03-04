@@ -1,7 +1,7 @@
 function R=Matrix_R(angles)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: Calculating rotation matrix from quaternion
-% Input: Valid Quaternion
+% Description: Calcualtes a rotation matrix given euler angles
+% Input: 1x3 vector (alpha,beta,gamma)
 % Output: Rotation Matrix (3x3)
 % Date: 3/3/21 
 % Author: Maxim Gurevich
