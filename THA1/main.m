@@ -126,7 +126,7 @@ S2b = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 [a4,b4,c4] = screw2qsh(S1b)
 [d4,e4,f4] = screw2qsh(S2b)
 %%
-%3d. RotTrans2ScrewAngle.m
+%3e. RotTrans2ScrewAngle.m
 clc
 R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
 R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
