@@ -1,4 +1,4 @@
-function [S, theta]=RotTrans2ScrewAngle(R,p)
+function [S,theta]=RotTrans2ScrewAngle(R,p)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: Calculating screw matrix from rotation matrix and
 % translation vector

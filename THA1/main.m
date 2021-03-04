@@ -41,6 +41,19 @@ I6 = eye(3);
 [j2,k2,l2] = euler_angle_func(I4)
 [m2,n2,o2] = euler_angle_func(I5)
 [p2,q2,r2] = euler_angle_func(I6)
+
+%%
+%2a. AxisAngle2RotMat.m
+R1 = [1 0 0];
+R2 = [0 1 0];
+R3 = [0 0 1];
+p1 = pi;
+p2 = pi/2;
+p3 = -pi;
+[a3] = AxisAngle2RotMat(R1,p1)
+[b3] = AxisAngle2RotMat(R2,p2)
+[c3] = AxisAngle2RotMat(R3,p3)
+
 %%
 %3a. configuration_calculator.m
 Screw1 = [0 0 3 0;0 0 0 1;-3 0 0 0;0 0 0 0];
