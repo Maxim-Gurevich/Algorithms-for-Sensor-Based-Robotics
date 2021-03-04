@@ -47,12 +47,20 @@ I6 = eye(3);
 R1 = [1 0 0];
 R2 = [0 1 0];
 R3 = [0 0 1];
-p1 = pi;
-p2 = pi/2;
-p3 = -pi;
-[a3] = AxisAngle2RotMat(R1,p1)
-[b3] = AxisAngle2RotMat(R2,p2)
-[c3] = AxisAngle2RotMat(R3,p3)
+P1 = pi;
+P2 = pi/2;
+P3 = -pi;
+[a3] = AxisAngle2RotMat(R1,P1)
+[b3] = AxisAngle2RotMat(R2,P2)
+[c3] = AxisAngle2RotMat(R3,P3)
+
+%%
+%2b. Quat2RotMat.m
+Q1 = [.7071 0 0 .7071];
+Q2 = [.5 .5 .5 .5];
+
+[a4] = Quat2RotMat(Q1)
+[b4] = Quat2RotMat(Q2)
 
 %%
 %3a. configuration_calculator.m
