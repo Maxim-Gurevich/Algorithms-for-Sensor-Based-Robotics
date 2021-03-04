@@ -19,23 +19,14 @@ elseif trace(R)==-1
     omega=(1/sqrt(2*(1+R(3,3))))*[R(1,3);R(2,3);1+R(3,3)];
 else
     theta=acos(.5*(trace(R)-1));
-    
-    % make sure theta is between 0 and pi
-    while theta>=pi
-        theta=theta-pi;
-    end
-    while theta<0
-        theta=theta+pi;
-    end
-    
-    omega=(1/(2*sin(theta)))*(R-transpose(R));
+    omega=(1/(2*sin(theta)))*(R-transpose(R))
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculate v
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-v=(1/theta*eye-1/2*omega+...
-    (1/theta-1/2*cot(theta/2))*(omega^2))*p;
+v=(1/theta*eye(3)-1/2*omega+...
+    (1/theta-1/2*cot(theta/2))*(omega^2))*p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Construct S

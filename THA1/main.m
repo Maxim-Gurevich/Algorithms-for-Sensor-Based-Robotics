@@ -120,18 +120,19 @@ b7 = TMatrix2ScrewAngle(T2)
 c7 = TMatrix2ScrewAngle(T3)
 %%
 %3d. screw2qsh.m
-S11 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
-S22 = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
+S1b = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
+S2b = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 
-[a4,b4,c4] = screw2qsh(S11)
-[d4,e4,f4] = screw2qsh(S22)
+[a4,b4,c4] = screw2qsh(S1b)
+[d4,e4,f4] = screw2qsh(S2b)
 %%
 %3d. RotTrans2ScrewAngle.m
 clc
-T1=[1 0 0 1;0 1 0 1;0 0 1 1; 0 0 0 0];
-T2=[1 0 0 0;0 cos(2) -sin(2) 0;0 sin(2) cos(2) 0;0 0 0 0];
-T3=[1 0 0 1;0 cos(2) -sin(2) 1;0 sin(2) cos(2) 1;0 0 0 0];
+R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
+R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+P1a=0;
+P2a=1;
 
-a7 = TMatrix2ScrewAngle(T1)
-b7 = TMatrix2ScrewAngle(T2)
-c7 = TMatrix2ScrewAngle(T3)
+a7 = RotTrans2ScrewAngle(R1a,P1a)
+b7 = RotTrans2ScrewAngle(R1a,P2a)
+c7 = RotTrans2ScrewAngle(R2a,P2a)
