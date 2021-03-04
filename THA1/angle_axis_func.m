@@ -8,7 +8,7 @@ function [angle,axis,valid] = angle_axis_func(R)
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     dim = size(R);
-    if (length(dim)~=2 | dim(1)~=dim(2) | det(R)~=1)
+    if (length(dim)~=2 | dim(1)~=dim(2) | dim(1)~=3 | det(R)~=1)
          valid = "Not valid R";
          angle = 0;
          axis = 0;
