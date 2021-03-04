@@ -1,4 +1,4 @@
-function [R,Difference]Bonus(Math_10)=(A)
+function [R,Difference]=Bonus_Math_10(A)
 format short
 
 angles=[0 0 0];
