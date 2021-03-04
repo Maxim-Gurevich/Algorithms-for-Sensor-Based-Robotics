@@ -127,7 +127,46 @@ S2b = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 [d4,e4,f4] = screw2qsh(S2b)
 %%
 %3e. RotTrans2ScrewAngle.m
-clc
+R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
+R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+P1a=0;
+P2a=1;
+
+a7 = RotTrans2ScrewAngle(R1a,P1a)
+b7 = RotTrans2ScrewAngle(R1a,P2a)
+c7 = RotTrans2ScrewAngle(R2a,P2a)
+%%
+%Math Bonus 10. Bonus_Math_10.m
+R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
+R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+P1a=0;
+P2a=1;
+
+a7 = RotTrans2ScrewAngle(R1a,P1a)
+b7 = RotTrans2ScrewAngle(R1a,P2a)
+c7 = RotTrans2ScrewAngle(R2a,P2a)
+%%
+%Bonus10a. Matrix_R.m
+R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
+R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+P1a=0;
+P2a=1;
+
+a7 = RotTrans2ScrewAngle(R1a,P1a)
+b7 = RotTrans2ScrewAngle(R1a,P2a)
+c7 = RotTrans2ScrewAngle(R2a,P2a)
+%%
+%Bonus10b. Matrix_Difference_Norm.m
+R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
+R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+P1a=0;
+P2a=1;
+
+a7 = RotTrans2ScrewAngle(R1a,P1a)
+b7 = RotTrans2ScrewAngle(R1a,P2a)
+c7 = RotTrans2ScrewAngle(R2a,P2a)
+%%
+%Programming Bonus 4. Bonus_Programming_4.m
 R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
 R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
 P1a=0;
