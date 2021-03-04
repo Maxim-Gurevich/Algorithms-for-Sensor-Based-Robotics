@@ -1,10 +1,5 @@
-clc
-clear all
-close all
+function [R,Difference]Bonus(Math_10)=(A)
 format short
-
-
-A = Matrix_R([10 9 8]);
 
 angles=[0 0 0];
 
@@ -12,14 +7,8 @@ Norms=[0 0;
        0 0;
        0 0];
 
-for n=1:3
-    switch n
-        case 1
-            k=1;
-        case 2
-            k=2;
-        case 3
-            k=3;
+for k=1:3
+
     end
     upper=2*pi;
     lower=0;
@@ -63,6 +52,4 @@ for n=1:3
         i=i+1
     end
 end
-A
-R
-Matrix_Difference_Norm(A,R)
+end
