@@ -63,6 +63,27 @@ Q2 = [.5 .5 .5 .5];
 [b4] = Quat2RotMat(Q2)
 
 %%
+% Question3.m
+close all
+Q1=[0 2 0];
+Q2=[2 0 0];
+S1=[0 0 1];
+S2=[1 0 0];
+H1=2;
+H2=-2;
+theta1=pi;
+theta2=pi/2;
+Tinit1=[1 0 0 2;0 1 0 0;0 0 1 0;0 0 0 1];
+Tinit2=[1 0 0 0;0 1 0 0;0 0 1 0;0 0 0 1];
+
+Question_3(Q1,S1,H1,theta1,Tinit1)
+Question_3(Q1,S1,H1,theta1,Tinit2)
+Question_3(Q1,S1,H2,theta1,Tinit1)
+Question_3(Q1,S2,H1,theta1,Tinit1)
+Question_3(Q2,S1,H1,theta1,Tinit1)
+Question_3(Q1,S1,H1,theta2,Tinit1)
+
+%%
 %3a. configuration_calculator.m
 Screw1 = [0 0 3 0;0 0 0 1;-3 0 0 0;0 0 0 0];
 Screw2 = [0 0 0 0;0 0 0 1;0 0 0 0;0 0 0 0];
@@ -76,8 +97,8 @@ Tinit = [0,-2,0,1;2,0,0,0;0,0,0,0;0,0,0,1];
 [m3,n3,o3,p3] = configuration_calculator(Screw2,Theta1,Tinit)
 %%
 %3b. screw2qsh.m
-S1 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
-S2 = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
+S11 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
+S22 = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 
-[a4,b4,c4] = screw2qsh(S1)
-[d4,e4,f4] = screw2qsh(S2)
+[a4,b4,c4] = screw2qsh(S11)
+[d4,e4,f4] = screw2qsh(S22)

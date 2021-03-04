@@ -47,25 +47,49 @@ I6 = eye(3);
 R1 = [1 0 0];
 R2 = [0 1 0];
 R3 = [0 0 1];
-p_1 = pi;
-p_2 = pi/2;
-p_3 = -pi;
-[a3] = AxisAngle2RotMat(R1,p_1)
-[b3] = AxisAngle2RotMat(R2,p_2)
-[c3] = AxisAngle2RotMat(R3,p_3)
+P1 = pi;
+P2 = pi/2;
+P3 = -pi;
+[a3] = AxisAngle2RotMat(R1,P1)
+[b3] = AxisAngle2RotMat(R2,P2)
+[c3] = AxisAngle2RotMat(R3,P3)
 
 %%
-%2b. AxisAngle2RotMat.m
-R1 = [1 0 0];
-R2 = [0 1 0];
-R3 = [0 0 1];
-p_1 = pi;
-p_2 = pi/2;
-p_3 = -pi;
-[a3] = AxisAngle2RotMat(R1,p_1)
-[b3] = AxisAngle2RotMat(R2,p_2)
-[c3] = AxisAngle2RotMat(R3,p_3)
+%2b. Quat2RotMat.m
+Q1 = [.7071 0 0 .7071];
+Q2 = [.5 .5 .5 .5];
 
+[a4] = Quat2RotMat(Q1)
+[b4] = Quat2RotMat(Q2)
+
+%%
+% Question3.m
+Q1=[0 2 0];
+Q2=[0 2 0];
+Q3=[0 2 0];
+Q4=[0 2 0];
+Q5=[0 0 0];
+S1=[0 0 1];
+S2=[0 0 1];
+S3=[0 0 1];
+S4=[1 0 0];
+S5=[0 0 1];
+H1=2;
+H2=-2;
+H3=-2;
+theta1=pi;
+theta2=pi;
+theta3=pi;
+theta4=pi;
+Tinit1=[1 0 0 2;0 1 0 0;0 0 1 0;0 0 0 1];
+Tinit2=[1 0 0 0;0 1 0 0;0 0 1 0;0 0 0 1];
+Tinit3=[1 0 0 2;0 1 0 0;0 0 1 0;0 0 0 1];
+Tinit4=[1 0 0 2;0 1 0 0;0 0 1 0;0 0 0 1];
+
+Question3.m(Q1,S1,H1,theta1,Tinit1)
+Question3.m(Q2,S2,H2,theta2,Tinit2)
+Question3.m(Q3,S3,H3,theta3,Tinit3)
+Question3.m(Q4,S4,H4,theta4,Tinit4)
 
 %%
 %3a. configuration_calculator.m
@@ -81,8 +105,8 @@ Tinit = [0,-2,0,1;2,0,0,0;0,0,0,0;0,0,0,1];
 [m3,n3,o3,p3] = configuration_calculator(Screw2,Theta1,Tinit)
 %%
 %3b. screw2qsh.m
-S1 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
-S2 = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
+S11 = [0 -1 .333 0;1 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
+S22 = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 
-[a4,b4,c4] = screw2qsh(S1)
-[d4,e4,f4] = screw2qsh(S2)
+[a4,b4,c4] = screw2qsh(S11)
+[d4,e4,f4] = screw2qsh(S22)
