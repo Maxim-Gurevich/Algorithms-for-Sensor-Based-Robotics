@@ -1,5 +1,11 @@
 function R=Matrix_R(angles)
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calcualtes a rotation matrix given euler angles
+% Input: 1x3 vector (alpha,beta,gamma)
+% Output: Rotation Matrix (3x3)
+% Date: 3/3/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 alp=angles(1);
 bet=angles(2);
 gam=angles(3);

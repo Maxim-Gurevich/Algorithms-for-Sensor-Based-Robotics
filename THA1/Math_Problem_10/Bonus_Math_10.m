@@ -1,10 +1,12 @@
-clc
-clear all
-close all
+function [R,Matrix_Difference]=Bonus_Math_10(A)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculates closest rotation matrix to given matrix
+% Input: any 3x3 matrix
+% Output: Rotation Matrix (3x3), value showing matrix similarity
+% Date: 3/3/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 format short
-
-
-A = Matrix_R([10 9 8]);
 
 angles=[0 0 0];
 
@@ -12,15 +14,7 @@ Norms=[0 0;
        0 0;
        0 0];
 
-for n=1:3
-    switch n
-        case 1
-            k=1;
-        case 2
-            k=2;
-        case 3
-            k=3;
-    end
+for k=1:3
     upper=2*pi;
     lower=0;
     range=upper-lower;
@@ -39,10 +33,9 @@ for n=1:3
             end
             R=Matrix_R(angles);
             Norms(q,1)=Matrix_Difference_Norm(A,R);
-            Matrix_Difference_Norm(A,R);
             Norms(q,2)=angles(k);
         end
-        Norms=sortrows(Norms)
+        Norms=sortrows(Norms);
         if max(Norms(1,2),Norms(2,2))-...
                 min(Norms(1,2),Norms(2,2))<range/2
             lower=min(Norms(1,2),Norms(2,2));
@@ -51,7 +44,7 @@ for n=1:3
             lower=max(Norms(1,2),Norms(2,2));
             upper=min(Norms(1,2),Norms(2,2));
         end
-        range=abs(upper-lower)
+        range=abs(upper-lower);
         while lower>2*pi
             lower=lower-2*pi;
         end
@@ -60,9 +53,8 @@ for n=1:3
         end
         angles(k)=lower;
         R=Matrix_R(angles);
-        i=i+1
+        i=i+1;
     end
 end
-A
-R
-Matrix_Difference_Norm(A,R)
+Matrix_Difference=Matrix_Difference_Norm(A,R);
+end
