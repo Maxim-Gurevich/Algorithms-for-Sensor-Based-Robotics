@@ -14,7 +14,7 @@ I5 = [3 2 2;3 4 5];
 [m,n,o] = angle_axis_func(I5)
 
 %%
-%2. quaternion_func.m
+
 I1 = [0 1 2 3;4 5 6 7;8 9 10 11;12 13 14 15];
 I2 = [0 -1 0;1 0 0;0 0 1];
 I3 = [0 0 1;1 0 0;0 1 0];
@@ -26,5 +26,7 @@ I5 = [3 2 2;3 4 5];
 [g1,h1] = quaternion_func(I3)
 [j1,k1] = quaternion_func(I4)
 [m1,n1] = quaternion_func(I5)
+
+
 
 %%
