@@ -126,50 +126,39 @@ S2b = [0 -.333 .333 0;.333 0 -.333 0;-.333 .333 0 , 1;0 0 0 0];
 [a4,b4,c4] = screw2qsh(S1b)
 [d4,e4,f4] = screw2qsh(S2b)
 %%
-%3e. RotTrans2ScrewAngle.m
-R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
-R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
-P1a=0;
-P2a=1;
-
-a7 = RotTrans2ScrewAngle(R1a,P1a)
-b7 = RotTrans2ScrewAngle(R1a,P2a)
-c7 = RotTrans2ScrewAngle(R2a,P2a)
-%%
 %Math Bonus 10. Bonus_Math_10.m
 A1=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
 A2=[1 2 3;4 5 6;7 8 9];
 
 
-[a8,b7] = Bonus_Math_10(A1)
-[c7,d7] = Bonus_Math_10(A2)
+[a8,b8] = Bonus_Math_10(A1)
+[c8,d8] = Bonus_Math_10(A2)
 %%
 %Bonus10a. Matrix_R.m
-R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
-R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
-P1a=0;
-P2a=1;
+E1=[0 0 0];
+E2=[0 0 1];
+E3=[1 1 1];
 
-a7 = RotTrans2ScrewAngle(R1a,P1a)
-b7 = RotTrans2ScrewAngle(R1a,P2a)
-c7 = RotTrans2ScrewAngle(R2a,P2a)
+a9 = Matrix_R(E1)
+b9 = Matrix_R(E2)
+c9 = Matrix_R(E3)
 %%
 %Bonus10b. Matrix_Difference_Norm.m
-R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
-R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
-P1a=0;
-P2a=1;
+A1=[1 1 1;1 1 1;1 1 1];
+A2=[4 6 2;7 6 2;3 4 5];
+R1=[1 1 1;1 1 1;1 1 1];
+R2=[1 1 1;1 1.01 1;1 1 1];
+R3=[3 5 0;1 6 7;6 1 3];
 
-a7 = RotTrans2ScrewAngle(R1a,P1a)
-b7 = RotTrans2ScrewAngle(R1a,P2a)
-c7 = RotTrans2ScrewAngle(R2a,P2a)
+a10 = Matrix_Difference_Norm(A1,R1)
+b10 = Matrix_Difference_Norm(A1,R2)
+c10 = Matrix_Difference_Norm(A2,R3)
 %%
 %Programming Bonus 4. Bonus_Programming_4.m
-R1a=[1 0 0;0 cos(2) -sin(2);0 sin(2) cos(2)];
-R2a=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
-P1a=0;
-P2a=1;
+A1=[cos(2) 0 sin(2);0 1 0;-sin(2) 0 cos(2)];
+A2=[cos(2) 0 sin(2);0 1.01 0;-sin(2) 0 cos(2)];
+A3=[1 2 3;4 5 6;7 8 9];
 
-a7 = RotTrans2ScrewAngle(R1a,P1a)
-b7 = RotTrans2ScrewAngle(R1a,P2a)
-c7 = RotTrans2ScrewAngle(R2a,P2a)
+[a11,b11] = Bonus_Programming_4(A1,.001)
+[c11,d11] = Bonus_Programming_4(A2,.001)
+[e11,f11] = Bonus_Programming_4(A3,.001)

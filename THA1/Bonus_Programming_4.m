@@ -3,7 +3,7 @@ function [within,R]=Bonus_Programming_4(A,threshold)
     if diff>threshold
         within=false;
     else
-        within=true;
-        R=M;
+        within=true;  
     end
+    R=M;
 end
