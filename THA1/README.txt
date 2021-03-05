@@ -1,3 +1,4 @@
+main.m--excecutable which contains all test cases
 angle_axis_func.m--Calculating angle and axis from rotation matrix
 quaternion_func.m--Determine quaternion and validity from a rotation matrix
 euler_angle_func.m--Calculating euler angles ZYZ and ZYX
