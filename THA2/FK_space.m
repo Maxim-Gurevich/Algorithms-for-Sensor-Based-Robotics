@@ -1,6 +1,7 @@
-% given URDF, generate space form FK
+% generate space form FK using...
+% information typically found in URDF
 
-%example of URDF for two joints:
+%example of URDF for kinematics of two joints:
     % </joint>
     % <joint name="joint1" type="continuous">
     % <parent link="base_link"/>
@@ -15,13 +16,14 @@
     % xyz="0.0 0.13585 0.0"/>
     % <axis xyz="0 1 0"/>
     
-%sample end effector info (can be extracted from URDF)
+%sample end effector info (can be extracted from an URDF)
 roll=0;
 pitch=0;
 yaw=0;
 x=1;
 y=1;
 z=1;
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 %determines M from data pertaining to last link in URDF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
