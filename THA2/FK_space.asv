@@ -1,6 +1,6 @@
 % given URDF, generate space form FK
 
-%example of URDF for two joints:
+%example:
     % </joint>
     % <joint name="joint1" type="continuous">
     % <parent link="base_link"/>
