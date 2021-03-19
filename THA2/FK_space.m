@@ -14,17 +14,13 @@
     % <origin rpy="0.0 1.570796325 0.0"...
     % xyz="0.0 0.13585 0.0"/>
     % <axis xyz="0 1 0"/>
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
-%calculates M(1:3,1:3) by assuming a given...
-%orientation of the end effector
+%determines M from data pertaining to last link in URDF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 M=zeros(4); %initilaize M
 M(1:4,1:3)=[1 0 0; 0 1 0; 0 0 1; 0 0 0];
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%calculates M(1:3,4) by finding the sum of all...
-%links in 3D
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %for each joint, determine the screw axis
