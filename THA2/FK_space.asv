@@ -67,11 +67,9 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %T(theta) in space form
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-theta=[0 0 0 0 0 0];
 T=1;
-for j=1:size(theta)
-    T=T*exp(S(j)*theta(j));
-end
-T=T*M;
+for j=1:length(theta)
+    T=T*exp(S(1)*theta(1)
+
 
 
