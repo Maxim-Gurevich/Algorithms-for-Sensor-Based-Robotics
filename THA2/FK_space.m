@@ -1,5 +1,4 @@
-clc
-clear all
+function [T,S,S_matrix,M]=FK_space(theta)
 % generate space form FK using...
 % information typically found in URDF
 
@@ -42,8 +41,10 @@ M=zeros(4); %initilaize M
 a=rpy(end,3);
 b=rpy(end,2);
 g=rpy(end,1);
-R=[cos(a)*cos(b) cos(a)*sin(b)*sin(g)-sin(a)*cos(g) cos(a)*sin(b)*cos(g)+sin(a)*sin(g);
-    sin(a)*cos(b) sin(a)*sin(b)*sin(g)+cos(a)*cos(g) sin(a)*sin(b)*cos(g)-cos(a)*sin(g);
+R=[cos(a)*cos(b) cos(a)*sin(b)*sin(g)-sin(a)*cos(g)...
+    cos(a)*sin(b)*cos(g)+sin(a)*sin(g);
+    sin(a)*cos(b) sin(a)*sin(b)*sin(g)+cos(a)*cos(g)...
+    sin(a)*sin(b)*cos(g)-cos(a)*sin(g);
     -sin(b) cos(b)*sin(g) cos(b)*cos(g)];
 
 %set rotation part of M
@@ -54,24 +55,24 @@ M(1:4,4)=[xyz(end,1);xyz(end,2);xyz(end,3);1];
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%for each joint, determine the screw axis
+%calculate T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-v=zeros(size(xyz,1),3);
-S=zeros(size(xyz,1),6);
-for i = 1:size(xyz,1)
-   v(i,:)=cross(-axis_xyz(i,:),xyz(i,:));
-   S(i,:)=[axis_xyz(i,:) v(i,:)];
-end
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%T(theta) in space form
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-theta=[0 0 0 0 0 0];
-T=1;
-for j=1:size(theta)
-    T=T*exp(S(j)*theta(j));
+%theta=[pi pi pi pi pi pi]/8;
+S=zeros(length(theta),6);
+S_matrix=zeros(4,4,length(theta));
+for i = 1:length(theta)
+   v=cross(-axis_xyz(i,:),xyz(i,:));
+   %for each joint, determine the screw axis
+   S(:,i)=[axis_xyz(i,:) v];
+   S_matrix(:,:,i)=[      0       -axis_xyz(i,3) axis_xyz(i,2)  v(1);
+       axis_xyz(i,3)       0       -axis_xyz(i,1) v(2);
+       -axis_xyz(i,2) axis_xyz(i,1)      0        v(3);
+            0              0             0         0];
+   if i==1
+       T=exp(S_matrix(:,:,i)*theta(i));
+   else
+       T=T*exp(S_matrix(:,:,i)*theta(i));
+   end
 end
 T=T*M;
-
-
+end
