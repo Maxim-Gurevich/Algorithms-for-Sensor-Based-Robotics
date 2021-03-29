@@ -1,4 +1,4 @@
-function [T,S,S_matrix,M]=FK_space(theta)
+function [T,S_matrix,S,M]=FK_space(theta)
 % generate space form FK using...
 % information typically found in URDF
 
@@ -58,12 +58,10 @@ M(1:4,4)=[xyz(end,1);xyz(end,2);xyz(end,3);1];
 %calculate T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %theta=[pi pi pi pi pi pi]/8;
-S=zeros(length(theta),6);
-S_matrix=zeros(4,4,length(theta));
+S_matrix=zeros(4,4,length(theta))
 for i = 1:length(theta)
    v=cross(-axis_xyz(i,:),xyz(i,:));
    %for each joint, determine the screw axis
-   S(:,i)=[axis_xyz(i,:) v];
    S_matrix(:,:,i)=[      0       -axis_xyz(i,3) axis_xyz(i,2)  v(1);
        axis_xyz(i,3)       0       -axis_xyz(i,1) v(2);
        -axis_xyz(i,2) axis_xyz(i,1)      0        v(3);
