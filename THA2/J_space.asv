@@ -1,0 +1,16 @@
+%calculate the space Jacobian of robot
+theta=[0 0 0 0 0 0];
+S=[     0     1     0     0     0     0;
+     0     0     1     0  -250     0;
+    -1     0     0     0     0  -180;
+     0     0     1  -360  -250     0;
+    -1     0     0     0     0  -540;
+     0     0     1  -720  -250     0;
+    -1     0     0     0     0  -875];
+
+
+J_s=zeros(size(theta),6);
+J_s(1)=S(1);
+for i=2:size(theta,6)
+    J_s(i)=adjoint(exp
+end
