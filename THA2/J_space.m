@@ -1,6 +1,8 @@
 %calculate the space Jacobian of robot
+clc
+clear all
 theta=[0 0 0 0 0 0];
-
+T=FK_space(theta);
 
 
 J_s=zeros(size(theta),6);
