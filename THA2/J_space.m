@@ -1,7 +1,8 @@
+function [J_s]=J_space(theta)
 %calculate the space Jacobian of robot
 clc
 clear all
-theta=[0 0 0 0 0 0];
+%theta=[0 0 0 0 0 0];
 [T,S,S_matrix,M]=FK_space(theta);
 
 
@@ -19,4 +20,5 @@ for i=2:length(theta)
     Ad_T=[R zeros(3,3);
         p_matrix*R R];
     J_s(:,i)=Ad_T*S(:,i);
+end
 end
