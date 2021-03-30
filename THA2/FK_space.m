@@ -69,9 +69,9 @@ for i = 1:length(theta)
        -axis_xyz(i,2) axis_xyz(i,1)      0        v(3);
             0              0             0         0];
    if i==1
-       T=exp(S_matrix(:,:,i)*theta(i));
+       T=expm(S_matrix(:,:,i)*theta(i));
    else
-       T=T*exp(S_matrix(:,:,i)*theta(i));
+       T=T*expm(S_matrix(:,:,i)*theta(i));
    end
 end
 T=T*M;
