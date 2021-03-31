@@ -12,7 +12,7 @@ switch mode
         trajPlotter=trajectoryPlotter(tp,...
         'DisplayName','Screw Axis', 'Linewidth', 1,...
         'color', 'm');
-    case 'frame' %input:T,labels
+    case 'frames' %input:T,labels
         %plot body frames
         orientations=varargin{1};
         positions=varargin{2};
@@ -20,7 +20,7 @@ switch mode
         %labels={'0,0,0';'\theta/4';'\theta/2';...
             %'3\theta/4';'\theta'};
         plotOrientation(op,orientations,positions,labels);
-    case 'axis' %input:point_x,point_y,point_z,...
+    case 'axes' %input:point_x,point_y,point_z,...
                         %axis_x,axis_y,axis_z
         axispoints=zeros(100,3);
         interval=.1;

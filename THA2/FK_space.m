@@ -84,11 +84,11 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Plot
+%plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 labels={'1';'2';'3';'4';'5';'6';'7'};
 Roboplot('init','Frames')
-Roboplot('frame',orientations,positions,labels)
+Roboplot('frames',orientations,positions,labels)
 end
 
 
