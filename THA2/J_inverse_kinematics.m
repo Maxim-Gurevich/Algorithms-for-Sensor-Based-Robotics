@@ -6,7 +6,7 @@ clear all
 %to control the robot from arbitrary configuration a to...
 %desired configuration b.
 theta=[0;0;0;0;0;1]
-[T_sb,S,S_matrix,M]=FK_space(theta)
+[T_sb,B,B_matrix,M]=FK_body(theta)
 T_sd=M
 i=0;
 omega_b=[10 10 10]
