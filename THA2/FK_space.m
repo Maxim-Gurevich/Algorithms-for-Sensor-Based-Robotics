@@ -57,7 +57,6 @@ M(1:4,4)=[xyz(end,1);xyz(end,2);xyz(end,3);1];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %calculate T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%theta=[pi pi pi pi pi pi]/8;
 S=zeros(6,length(theta));
 S_matrix=zeros(4,4,length(theta));
 for i = 1:length(theta)
@@ -79,12 +78,7 @@ T_s=T_s*M;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-roll=rpy(:,1);
-pitch=rpy(:,2);
-yaw=rpy(:,3);
-x=xyz(:,1);
-y=xyz(:,2);
-z=xyz(:,3);
+
 label={'1';'2';'3';'4';'5';'6';'7'};
 Roboplot('init','Frames')
 Roboplot('frame',roll,pitch,yaw,x,y,z,label)

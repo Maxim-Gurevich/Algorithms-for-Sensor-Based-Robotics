@@ -12,19 +12,18 @@ switch mode
         trajPlotter=trajectoryPlotter(tp,...
         'DisplayName','Screw Axis', 'Linewidth', 1,...
         'color', 'm');
-    case 'frame' %input:roll,pitch,yaw,x's,y's,z's,labels
+    case 'frame' %input:T,labels
         %plot body frames
-        roll=varargin{1};
-        pitch=varargin{2};
-        yaw=varargin{3};
-        x=varargin{4};
-        y=varargin{5};
-        z=varargin{6};
-        labels=varargin{7};           
+        T=varargin{1};
+        orientations=T(1:3,1:3);
+        x=T(1,4);
+        y=T(2,4);
+        z=T(3,4);
+        labels=varargin{2};           
         %labels={'0,0,0';'\theta/4';'\theta/2';...
             %'3\theta/4';'\theta'};
         positions=[x y z];
-        plotOrientation(op,roll,pitch,yaw,positions,labels);
+        plotOrientation(op,orientations,positions,labels);
     case 'axis' %input:point_x,point_y,point_z,...
                         %axis_x,axis_y,axis_z
         axispoints=zeros(100,3);
