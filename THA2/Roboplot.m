@@ -14,15 +14,11 @@ switch mode
         'color', 'm');
     case 'frame' %input:T,labels
         %plot body frames
-        T=varargin{1};
-        orientations=T(1:3,1:3);
-        x=T(1,4);
-        y=T(2,4);
-        z=T(3,4);
-        labels=varargin{2};           
+        orientations=varargin{1};
+        positions=varargin{2};
+        labels=varargin{3};           
         %labels={'0,0,0';'\theta/4';'\theta/2';...
             %'3\theta/4';'\theta'};
-        positions=[x y z];
         plotOrientation(op,orientations,positions,labels);
     case 'axis' %input:point_x,point_y,point_z,...
                         %axis_x,axis_y,axis_z
