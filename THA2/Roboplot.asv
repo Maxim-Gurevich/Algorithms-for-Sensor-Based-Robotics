@@ -19,10 +19,10 @@ switch mode
         x=varargin{4};
         y=varargin{5};
         z=varargin{6};
-        labels=varargin{7};           
+        positions=[x y z];
+        labels=varargin{3};
         %labels={'0,0,0';'\theta/4';'\theta/2';...
             %'3\theta/4';'\theta'};
-        positions=[x y z];
         plotOrientation(op,roll,pitch,yaw,positions,labels);
     case 'points' %input:x's,y's,z's
         x=varargin{1};
