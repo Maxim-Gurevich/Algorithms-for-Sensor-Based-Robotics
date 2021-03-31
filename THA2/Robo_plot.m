@@ -9,6 +9,9 @@ switch mode
         op = orientationPlotter(tp,'DisplayName',varargin{1},...
         'LocalAxesLength',2,'MarkerSize',2,...
         'FontSize',10);
+        trajPlotter=trajectoryPlotter(tp,...
+        'DisplayName','Screw Axis', 'Linewidth', 1,...
+        'color', 'm');
     case frame %input:orientations,positions,labels
         %plot body frames
         orientations=varargin{1};
@@ -25,10 +28,6 @@ switch mode
             %'3\theta/4';'\theta'};
         plotOrientation(op,orientations,positions,labels);
     case points %input:points_cell_array
-        %plot screw axis
-        trajPlotter=trajectoryPlotter(tp,...
-        'DisplayName','Screw Axis', 'Linewidth', 1,...
-        'color', 'm');
         plotTrajectory(trajPlotter,points_cell_array);
     otherwise
         error('invalid input for "mode"')
