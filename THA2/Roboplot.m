@@ -25,6 +25,18 @@ switch mode
             %'3\theta/4';'\theta'};
         positions=[x y z];
         plotOrientation(op,roll,pitch,yaw,positions,labels);
+    case 'axis' %input:point_x,point_y,point_z,...
+                        %axis_x,axis_y,axis_z
+        axispoints=zeros(100,3);
+        interval=.1;
+        p_xyz=[varargin{1} varargin{2} varargin{3}];
+        a_xyz=[varargin{4} varargin{5} varargin{6}];
+        for i=1:100
+            newpoint=(p_xyz+a_xyz*interval*i);
+            axispoints(i,:)=newpoint;
+        end
+        axis_points_cell_array={axispoints};
+        plotTrajectory(trajPlotter,axis_points_cell_array);
     case 'points' %input:x's,y's,z's
         x=varargin{1};
         y=varargin{2};
