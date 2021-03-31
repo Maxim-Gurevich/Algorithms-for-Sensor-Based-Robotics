@@ -1,4 +1,4 @@
-function [T_S,S,S_matrix,M]=FK_space(theta)
+function [T_s,S,S_matrix,M]=FK_space(theta)
 % generate space form FK using...
 % information typically found in URDF
 
@@ -69,10 +69,10 @@ for i = 1:length(theta)
        -axis_xyz(i,2) axis_xyz(i,1)      0        v(3);
             0              0             0         0];
    if i==1
-       T_S=expm(S_matrix(:,:,i)*theta(i));
+       T_s=expm(S_matrix(:,:,i)*theta(i));
    else
-       T_S=T_S*expm(S_matrix(:,:,i)*theta(i));
+       T_s=T_s*expm(S_matrix(:,:,i)*theta(i));
    end
 end
-T_S=T_S*M;
+T_s=T_s*M;
 end

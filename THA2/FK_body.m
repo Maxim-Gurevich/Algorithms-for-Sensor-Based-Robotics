@@ -1,5 +1,5 @@
-function [T_B,B,B_matrix,M]=FK_body(theta)
-[T_S,S,S_matrix,M]=FK_space(theta);
+function [T_b,B,B_matrix,M]=FK_body(theta)
+[~,S,~,M]=FK_space(theta);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %calculate T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,10 +20,10 @@ for i = 1:length(theta)
                   -B(i,2) B(i,1)    0    B(3,4);
                       0     0       0     0];
    if i==1
-       T_B=expm(B_matrix(:,:,i)*theta(i));
+       T_b=expm(B_matrix(:,:,i)*theta(i));
    else
-       T_B=T_B*expm(B_matrix(:,:,i)*theta(i));
+       T_b=T_b*expm(B_matrix(:,:,i)*theta(i));
    end
 end
-T_B=M*T_B;
+T_b=M*T_b;
 end

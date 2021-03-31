@@ -1,7 +1,7 @@
 function [J_s]=J_space(theta)
 %calculate the space Jacobian of robot
 %theta=[0 0 0 0 0 0];
-[T_S,S,S_matrix,M]=FK_space(theta);
+[~,S,S_matrix,~]=FK_space(theta);
 
 J_s=zeros(6,length(theta));
 J_s(:,1)=S(:,1);
