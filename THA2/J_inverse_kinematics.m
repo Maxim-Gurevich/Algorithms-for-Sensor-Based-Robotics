@@ -8,7 +8,6 @@ clear all
 theta=[0;0;0;0;0;1]
 [T_sb,S,S_matrix,M]=FK_space(theta)
 T_sd=M
-
 i=0;
 omega_b=[10 10 10]
 v_b=[10 10 10]
