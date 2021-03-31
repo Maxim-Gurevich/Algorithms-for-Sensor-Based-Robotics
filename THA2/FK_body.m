@@ -1,7 +1,6 @@
-function [T_b,B,B_matrix,M]=FK_body(theta)
-[T_s,S,S_matrix,M]=FK_space(theta);
+function [T_b,B,B_matrix,M]=FK_body(theta,graph)
 
-
+[~,S,~,M]=FK_space(theta,graph);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %calculate T

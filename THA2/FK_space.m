@@ -1,4 +1,4 @@
-function [T_s,S,S_matrix,M]=FK_space(theta)
+function [T_s,S,S_matrix,M]=FK_space(theta,graph)
 % generate space form FK using...
 % information typically found in URDF
 
@@ -86,9 +86,14 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-labels={'1';'2';'3';'4';'5';'6';'7'};
-Roboplot('init','Frames')
-Roboplot('frames',orientations,positions,labels)
+if graph==1
+    Roboplot('init','Frames')
+    labels={'1';'2';'3';'4';'5';'6';'7'};
+    Roboplot('frames',orientations,positions,labels)
+elseif graph==2
+    labels={'1';'2';'3';'4';'5';'6';'7'};
+    Roboplot('frames',orientations,positions,labels)
+end
 end
 
 

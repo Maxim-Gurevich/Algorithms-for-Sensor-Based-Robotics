@@ -1,7 +1,7 @@
 function [J_b]=J_body(theta)
 %calculate the body Jacobian of robot
 %theta=[0 0 0 0 0 0];
-[~,B,B_matrix,~]=FK_body(theta);
+[~,B,B_matrix,~]=FK_body(theta,0);
 
 J_b=zeros(6,length(theta));
 J_b(:,1)=B(:,1);
