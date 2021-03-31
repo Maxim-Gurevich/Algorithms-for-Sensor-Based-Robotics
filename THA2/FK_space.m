@@ -29,7 +29,7 @@ xyz=[0 0 0;
     .250 -.875 0];
 
 %rows here need to be unit vectors
-axis_xyz=[0 1 0;0 0 1;-1 0 0;0 0 1;-1 0 0;0 0 1;-1 0 0];
+axis_xyz=[0 1 0;0 0 1;-1 0 0;0 0 1;-1 0 0;0 0 1;0 -1 0];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 %determines M for all joints
