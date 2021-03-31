@@ -1,0 +1,8 @@
+function T = screw_toT(w,v)
+%SCREW_TOT Summary of this function goes here
+%   w = [3x3] skew form
+%   v = [3x1] 
+syms t
+T = [exp(w*t),(eye(3));[0,0,0,1]];
+end
+
