@@ -79,7 +79,15 @@ T_s=T_s*M;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Roboplot(init,'FK_space')
+Roboplot('init','Frames')
+roll=rpy(:,1);
+pitch=rpy(:,2);
+yaw=rpy(:,3);
+x=
+y=
+z=
+label=
+Roboplot('frame',roll,pitch,yaw,x,y,z,label)
 
 
 

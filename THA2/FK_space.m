@@ -21,12 +21,12 @@ function [T_s,S,S_matrix,M]=FK_space(theta)
 %each row corresponds to a sequential joint (there are 7)
 rpy=[0 0 0;0 0 0;0 0 0;0 0 0;0 0 0;0 0 0;0 0 0];
 xyz=[0 0 0;
-    250 0 0;
-    250 -180 0;
-    250 -360 0;
-    250 -540 0;
-    250 -720 0;
-    250 -875 0];
+    .250 0 0;
+    .250 -.180 0;
+    .250 -.360 0;
+    .250 -.540 0;
+    .250 -.720 0;
+    .250 -.875 0];
 
 %rows here need to be unit vectors
 axis_xyz=[0 1 0;0 0 1;-1 0 0;0 0 1;-1 0 0;0 0 1;-1 0 0];
@@ -58,7 +58,7 @@ M(1:4,4)=[xyz(end,1);xyz(end,2);xyz(end,3);1];
 %calculate T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %theta=[pi pi pi pi pi pi]/8;
-S=zeros(length(theta),6);
+S=zeros(6,length(theta));
 S_matrix=zeros(4,4,length(theta));
 for i = 1:length(theta)
    v=cross(-axis_xyz(i,:),xyz(i,:));
@@ -79,14 +79,14 @@ T_s=T_s*M;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+roll=rpy(:,1);
+pitch=rpy(:,2);
+yaw=rpy(:,3);
+x=xyz(:,1);
+y=xyz(:,2);
+z=xyz(:,3);
+label={'1';'2';'3';'4';'5';'6';'7'};
 Roboplot('init','Frames')
-roll=rpy(
-pitch=
-yaw=
-x=
-y=
-z=
-label=
 Roboplot('frame',roll,pitch,yaw,x,y,z,label)
 
 

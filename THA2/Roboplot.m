@@ -1,4 +1,5 @@
-function Robo_plot(mode,varargin)
+function Roboplot(mode,varargin)
+global tp op trajPlotter
 switch mode
     case 'init' %input:display name,
         %initialize theater (canvas on which objects are plotted)
