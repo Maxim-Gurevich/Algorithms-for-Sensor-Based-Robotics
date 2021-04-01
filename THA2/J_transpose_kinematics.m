@@ -25,7 +25,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
     V_b=[v_b; omega_b];
-    theta=theta+constant*transpose(J_b)*V_b
+    theta=theta+constant*transpose(J_b)*V_b;
     i=i+1;
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
