@@ -6,8 +6,8 @@ function [J_b]=J_body(theta,graph)
 n=length(theta);
 J_b=zeros(6,n);
 J_b(:,n)=B(:,n);
+term=1;
 for i=1:n-1
-    term=1;
     for j=i+1:n
         term=expm(-1*B_matrix(:,:,j)*theta(j))*term;
     end

@@ -56,10 +56,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-labels={};
 for i=1:length(theta)
-    labels{end+1} = num2str(i);
+    
 end
+labels={'1';'2';'3';'4';'5';'6';'7'};
 if graph==1
     Roboplot('init','Frames')
     Roboplot('frames',orientations,positions,labels)
