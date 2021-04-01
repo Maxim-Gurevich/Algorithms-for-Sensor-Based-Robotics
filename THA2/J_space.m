@@ -1,4 +1,4 @@
-function [J_s]=J_space(theta)
+function [J_s]=J_space(theta,graph)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: calculate the space Jacobian of robot
 % Input: theta
@@ -8,7 +8,7 @@ function [J_s]=J_space(theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %theta=[0 0 0 0 0 0];
-[~,S,S_matrix,~]=FK_space(theta,0);
+[~,S,S_matrix,~]=FK_space(theta,graph);
 
 J_s=zeros(6,length(theta));
 J_s(:,1)=S(:,1);
