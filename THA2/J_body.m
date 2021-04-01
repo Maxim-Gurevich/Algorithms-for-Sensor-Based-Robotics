@@ -1,13 +1,13 @@
-function [J_b]=J_body(theta)
+function [J_b]=J_body(theta,graph)
 %calculate the body Jacobian of robot
 %theta=[0 0 0 0 0 0];
-[~,B,B_matrix,~]=FK_body(theta,0);
+[~,B,B_matrix,~]=FK_body(theta,graph);
 
-J_b=zeros(6,length(theta));
-J_b(:,1)=B(:,1);
-term=1;
 n=length(theta);
-for i=1:n
+J_b=zeros(6,n);
+J_b(:,n)=B(:,n);
+for i=1:n-1
+    term=1;
     for j=i+1:n
         term=expm(-1*B_matrix(:,:,j)*theta(j))*term;
     end

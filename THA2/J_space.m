@@ -5,8 +5,8 @@ function [J_s]=J_space(theta)
 
 J_s=zeros(6,length(theta));
 J_s(:,1)=S(:,1);
-term=1;
 for i=2:length(theta)
+    term=1;
     for j=1:i-1
         term=term*expm(S_matrix(:,:,i)*theta(i));
     end
