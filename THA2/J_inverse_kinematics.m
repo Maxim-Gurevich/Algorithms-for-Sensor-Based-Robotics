@@ -20,7 +20,7 @@ omega_b=[10 10 10];
 v_b=[10 10 10];
 eps_omega=.001;
 eps_v=.001;
-while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<20
+while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     J_b=FK_body(theta,2);
     V_b_matrix=logm(inv(J_b)*T_sd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
@@ -31,7 +31,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<20
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
 end
-if i==20
+if i==100
     error('theta could not converge')
 end
 end
