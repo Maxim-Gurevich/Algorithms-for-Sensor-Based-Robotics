@@ -1,5 +1,11 @@
 function [T_b,B,B_matrix,M]=FK_body(theta,graph)
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: 
+% Input: 
+% Output: 
+% Date: 3/30/21 
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [~,S,~,M]=FK_space(theta,graph);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

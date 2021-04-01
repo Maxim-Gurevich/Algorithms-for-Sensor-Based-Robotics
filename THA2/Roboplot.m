@@ -1,3 +1,10 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Plotter for testing
+% Input: 
+% Output: 
+% Date: 3/30/21 
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function Roboplot(mode,varargin)
 global tp op trajPlotter
 switch mode

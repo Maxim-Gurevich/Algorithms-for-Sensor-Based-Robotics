@@ -1,7 +1,11 @@
 function state = singularity(jacobian)
-%SINGULARITY Summary of this function goes here
-%Input = 6xn jacobian 
-%returns 1 if in singularity, returns 0 if not in singularity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Returns boolean if robot in singularity (0 not, 1 yes)
+% Input: Jacobian [6xn]
+% Output: singularity?
+% Date: 3/30/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 dims = size(jacobian);
 if dims(2)>6
     max_rank = 6;

@@ -1,6 +1,11 @@
 function [eig_vals,eig_vects] = ellipsoid_plot_angular(jacobian)
-%ELLIPSOID_PLOT_ANGULAR Summary of this function goes here
-%   Detailed explanation goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Determining ellipsoid of manipubility (angular velocity)
+% Input: Jacobian (6xn)
+% Output: Visualization of ellipsoid, axes lengths[1x3], and axes[1x3] directions
+% Date: 3/30/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 dims = size(jacobian);
 columns = dims(2);
 Jw = jacobian(1:3,1:columns);

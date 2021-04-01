@@ -1,6 +1,11 @@
 function cond_number = J_condition(eig_vals)
-%J_CONDITION Summary of this function goes here
-%   Detailed explanation goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculate the body Jacobian of robot
+% Input: eigenvalues (1D vector)
+% Output: condition number
+% Date: 3/30/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 cond_number = max(eig_vals)/min(eig_vals);
 end
 

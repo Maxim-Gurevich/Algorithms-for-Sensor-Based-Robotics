@@ -1,3 +1,10 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculation of the space jacobian for Problem 4 of THA 2
+% Input: N/A
+% Output: space jacobian
+% Date: 3/30/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 syms L t1 t2 t3 t4 t5 t6;
 S_1 = [0;0;1;0;0;0];
 S_2 = [0;1;0;0;0;0];

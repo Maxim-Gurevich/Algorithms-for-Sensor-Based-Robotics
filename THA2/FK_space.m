@@ -1,6 +1,13 @@
 function [T_s,S,S_matrix,M]=FK_space(theta,graph)
 % generate space form FK using...
 % information typically found in URDF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: 
+% Input: 
+% Output: 
+% Date: 3/30/21 
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [rpy,xyz,axis_xyz]=config();
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 %determines M for all joints

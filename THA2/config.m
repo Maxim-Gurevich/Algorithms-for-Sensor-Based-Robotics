@@ -1,4 +1,11 @@
 function [rpy,xyz,axis_xyz]=config()
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: 
+% Input: 
+% Output: 
+% Date: 3/30/21 
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %example of URDF for kinematics of two joints:
     % </joint>
     % <joint name="joint1" type="continuous">

@@ -1,5 +1,12 @@
 function [J_b]=J_body(theta,graph)
-%calculate the body Jacobian of robot
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Calculate the body Jacobian of robot
+% Input: Theta ()
+% Output: J_b 6xn
+% Date: 3/30/21 
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %theta=[0 0 0 0 0 0];
 [~,B,B_matrix,~]=FK_body(theta,graph);
 

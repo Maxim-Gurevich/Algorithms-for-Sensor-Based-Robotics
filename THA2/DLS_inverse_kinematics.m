@@ -1,8 +1,14 @@
 function theta=DLS_inverse_kinematics(T_sd,theta)
-%Using the derived forward kinematics and Jacobians,...
-%uses the iterative numerical inverse kinematics algorithm...
-%to control the robot from arbitrary configuration a to...
-%desired configuration b.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Using the derived forward kinematics and Jacobians,uses the
+% iterative numerical inverse kinematics algorithm to control the robot
+% from arbitrary configuration a to desired configuration b.
+% Input: theta, T_sd
+% Output: theta
+% Date: 3/30/21 
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %theta=[0;0;0;0;0;0;.2];
 FK_body(theta,1);%to initiate graph
 %[J_b]=J_body(theta,0);

@@ -2,9 +2,9 @@ function [J_s]=J_space(theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: calculate the space Jacobian of robot
 % Input: theta
-% Output: space jacobian
+% Output: volume
 % Date: 3/30/21 
-% Author: Maxim
+% Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %theta=[0 0 0 0 0 0];

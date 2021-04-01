@@ -1,3 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Developing tree for SDA_10F: Can be used to simulate the
+% robot in different configurations: Required Robotics Toolbox
+% Input: 
+% Output: Plotting of robot state
+% Date: 3/30/21 
+% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 SDA_10F = rigidBodyTree;
 body1 = rigidBody('body1');
 
