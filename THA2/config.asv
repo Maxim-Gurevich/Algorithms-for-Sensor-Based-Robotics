@@ -16,7 +16,7 @@ function [rpy,xyz,axis_xyz]=config()
     
 %sample info that can be extracted from an URDF
 %each row corresponds to a sequential joint (there are 7)
-rpy=[0 -pi/2 0;pi/2 0 0;0 0 0;0 -pi/2 0;0 0 0;pi/2 0 0;0 0 0];
+rpy=[0 -pi/2 0;pi/2 0 0;0 0 0;0 -pi/2 0;0 0 0;0 0 0;pi/2 0 0];
 xyz=[0 0 0;
     .250  0 0;
     .250  0 .180;
