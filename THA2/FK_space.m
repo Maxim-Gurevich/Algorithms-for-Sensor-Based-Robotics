@@ -36,8 +36,7 @@ axis_xyz=[0 1 0;0 0 1;-1 0 0;0 0 1;-1 0 0;0 0 1;0 -1 0];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 M=zeros(4,4,length(theta)); %initilaize M
 for i=1:length(theta)
-%convert roll pitch yaw to rotation matrix (should ...
-%be made into its own funciton)
+%convert roll pitch yaw to rotation matrix
 a=rpy(i,3);
 b=rpy(i,2);
 g=rpy(i,1);

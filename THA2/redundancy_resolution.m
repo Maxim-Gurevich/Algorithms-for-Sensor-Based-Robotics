@@ -1,4 +1,4 @@
-function theta=J_inverse_kinematics(T_sd,theta)
+function theta=redundancy_resolution(T_sd,theta)
 %Using the derived forward kinematics and Jacobians,...
 %uses the iterative numerical inverse kinematics algorithm...
 %to control the robot from arbitrary configuration a to...
@@ -14,7 +14,7 @@ v_b=[10 10 10];
 eps_omega=.001;
 eps_v=.001;
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<20
-    J_b=FK_body(theta,2);
+    J_b=FK_body(theta,2)
     V_b_matrix=logm(inv(J_b)*T_sd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
