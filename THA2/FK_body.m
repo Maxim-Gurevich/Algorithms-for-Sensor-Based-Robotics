@@ -1,13 +1,15 @@
-function [T_b,B,B_matrix,M]=FK_body(theta)
-[~,S,~,M]=FK_space(theta);
+function [T_b,B,B_matrix,M]=FK_body(theta,graph)
+
+[~,S,~,M]=FK_space(theta,graph);
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %calculate T
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-B=zeros(length(theta),6);
+B=zeros(6,length(theta));
 B_matrix=zeros(4,4,length(theta));
 for i = 1:length(theta)
    %for each joint, determine the screw axis
-   M_inv=inv(M);
+   M_inv=inv(M(:,:,end));
    R=M_inv(1:3,1:3);
    p_matrix=[    0     -M_inv(3,4)  M_inv(2,4);
               M_inv(3,4)      0     -M_inv(1,4);
@@ -15,9 +17,9 @@ for i = 1:length(theta)
    Ad_M_inv=[R zeros(3,3);
         p_matrix*R R];
    B(:,i)=Ad_M_inv*S(:,i);
-   B_matrix(:,:,i)=[  0  -B(i,3)  B(i,2) B(1,4);
-                   B(i,3)   0    -B(i,1) B(2,4);
-                  -B(i,2) B(i,1)    0    B(3,4);
+   B_matrix(:,:,i)=[  0  -B(3,i)  B(2,i) B(4,i);
+                   B(3,i)   0    -B(1,i) B(5,i);
+                  -B(2,i) B(1,i)    0    B(6,i);
                       0     0       0     0];
    if i==1
        T_b=expm(B_matrix(:,:,i)*theta(i));
@@ -25,5 +27,5 @@ for i = 1:length(theta)
        T_b=T_b*expm(B_matrix(:,:,i)*theta(i));
    end
 end
-T_b=M*T_b;
+T_b=M(:,:,end)*T_b;
 end

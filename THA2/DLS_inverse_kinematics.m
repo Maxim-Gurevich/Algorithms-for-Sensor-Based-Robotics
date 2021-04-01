@@ -1,4 +1,4 @@
-function theta=J_inverse_kinematics(T_sd,theta)
+function theta=DLS_inverse_kinematics(T_sd,theta)
 %Using the derived forward kinematics and Jacobians,...
 %uses the iterative numerical inverse kinematics algorithm...
 %to control the robot from arbitrary configuration a to...
@@ -19,7 +19,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<20
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
     V_b=[v_b; omega_b];
-    theta=theta+pinv(J_b)*V_b;
+    theta=theta+(transpose(J_b)*inv(J_b*transpose(J_b)+damping^2*eye(7))*V_b;
     i=i+1;
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
