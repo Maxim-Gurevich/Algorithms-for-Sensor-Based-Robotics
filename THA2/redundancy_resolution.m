@@ -11,20 +11,23 @@ function theta=redundancy_resolution(T_sd,theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %theta=[0;0;0;0;0;0;.2];
-FK_body(theta,1);%to initiate graph
+[T,B1,B_matrix,M]=FK_body(theta,1);%to initiate graph
 %[J_b]=J_body(theta,0);
 %T_sd=M(:,:,end)
 i=0;
 omega_b=[10 10 10];
 v_b=[10 10 10];
-eps_omega=.001;
-eps_v=.001;
+eps_omega=.0001;
+eps_v=.0001;
 mem_w=0;
 mem_q=0;
 k=1;
+theta=transpose(theta);
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
-    J_b=FK_body(theta,2);
-    V_b_matrix=logm(inv(J_b)*T_sd);
+    [T,~,~,~]=FK_body(theta,0);
+    J_b=J_body(theta,2);
+    T_bd=inv(T)*T_sd;
+    V_b_matrix=logm(T_bd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
     V_b=[v_b; omega_b];
@@ -32,10 +35,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     mem_w=sqrt(det(J_b*transpose(J_b)));
     mem_q=theta;
     theta=theta+pinv(J_b)*V_b+(eye(7)-pinv(J_b)*J_b)*qdot_0;
-    
-    i=i+1;
-    v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
-    omega_b=V_b_matrix(1:3,4);
+    i=i+1
 end
 if i==100
     error('theta could not converge')
