@@ -21,7 +21,7 @@ switch mode
         trajPlotter=trajectoryPlotter(tp,...
         'DisplayName','Screw Axis', 'Linewidth', 1,...
         'color', 'm');
-    case 'frames' %input:T,labels
+    case 'frames' %input:orientations,positions,labels
         %plot body frames
         orientations=varargin{1};
         positions=varargin{2};

@@ -16,7 +16,8 @@ graph=1;
 [T_s2,S2,S_matrix2,M2]=FK_space(theta2,graph)
 [T_s3,S3,S_matrix3,M3]=FK_space(theta3,graph)
 %%
-%Roboplot(mode,varargin)
+Roboplot('init','Title goes here')
+%Roboplot('frames',[1 0 0;0 1 0;0 0 1],[1 1 1],'test')
 %%
 %[T_b,B,B_matrix,M]=FK_body(theta,graph)
 %%
