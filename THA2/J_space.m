@@ -1,7 +1,8 @@
 function [J_s]=J_space(theta,graph)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: calculate the space Jacobian of robot
-% Input: theta
+% Input: theta, graph mode (0-no graph,...
+                %1-new graph, 2-add to current graph
 % Output: space jacobian
 % Date: 3/30/21 
 % Author: Maxim

@@ -1,10 +1,10 @@
 function [T_s,S,S_matrix,M]=FK_space(theta,graph)
-% generate space form FK using...
-% information typically found in URDF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: 
-% Input: 
-% Output: 
+% Description: % generate space form FK using...
+% information typically found in URDF
+% Input: theta, graph mode (0-no graph, 1-new graph,
+                    %2-add to old graph
+% Output: plot, transformation, screw axes, M
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

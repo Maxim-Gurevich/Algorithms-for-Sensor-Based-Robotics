@@ -23,5 +23,4 @@ ylabel('v2')
 zlabel('v3')
 axis equal
 eig_vects = eigenvector; %eigenvectors are the columns
-
 end

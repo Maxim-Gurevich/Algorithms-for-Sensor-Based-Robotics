@@ -1,8 +1,9 @@
 function [J_b]=J_body(theta,graph)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: Calculate the body Jacobian of robot
-% Input: Theta ()
-% Output: J_b 6xn
+% Input: Theta, graph mode(0-no plot,1-newplot,...
+                        %or 2-add to plot)
+% Output: J_b 6xn, plot
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

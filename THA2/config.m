@@ -1,8 +1,8 @@
 function [rpy,xyz,axis_xyz]=config()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: 
-% Input: 
-% Output: 
+% Description: A place to store robot configuration data
+% Input: N/A
+% Output: configuration data typically found in URDF
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,13 +34,4 @@ xyz=[0 0 0;
 
 %rows here need to be unit vectors
 axis_xyz=[1 0 0;0 1 0;0 0 1;1 0 0;0 0 1;0 1 0;0 0 1];
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% rpy=[0 0 0;0 0 0;0 0 0;0 0 0];
-% xyz=[0 0 0;
-%     0 0 1;
-%     0 1 1;
-%     0 1 1];
-% 
-% axis_xyz=[0 0 1;1 0 0;0 0 1;0 1 0];
 end
