@@ -49,13 +49,13 @@ for i=1:length(theta)
             -axis_xyz(j,2) axis_xyz(j,1)       0         v(3);
                         0        0             0          0];
        if j==1
-           T_si=expm(S_matrix(:,:,j)*theta(j));
+           T_sj=expm(S_matrix(:,:,j)*theta(j));
        else
-           T_si=T_si*expm(S_matrix(:,:,j)*theta(j));
+           T_sj=T_sj*expm(S_matrix(:,:,j)*theta(j));
        end
     end
-    T_s(:,:,i)=T_si*M(:,:,i);
-    orientations(:,:,i)=inv(T_s(1:3,1:3,i));
+    T_s(:,:,i)=T_sj*M(:,:,i);
+    orientations(:,:,i)=T_s(1:3,1:3,i);
     positions(i,:)=[T_s(1,4,i) T_s(2,4,i) T_s(3,4,i)];
 end
 

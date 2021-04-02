@@ -7,7 +7,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%
-%[T_s,S,S_matrix,M]=FK_space(theta,graph)
+close all
+theta1=[0 0 0 0 0 0 0];
+theta2=[-.2 .3 1 -1 1 .5 0];
+theta3=[.1 .1 .1 .1];
+
+graph=1;
+[T_s1,S1,S_matrix1,M1]=FK_space(theta1,0)
+[T_s2,S2,S_matrix2,M2]=FK_space(theta2,graph)
+[T_s3,S3,S_matrix3,M3]=FK_space(theta3,0)
 %%
 %Roboplot(mode,varargin)
 %%
