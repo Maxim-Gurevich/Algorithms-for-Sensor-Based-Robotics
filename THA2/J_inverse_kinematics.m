@@ -17,19 +17,21 @@ function theta=J_inverse_kinematics(T_sd,theta)
 i=0;
 omega_b=[10 10 10];
 v_b=[10 10 10];
-eps_omega=.001;
-eps_v=.001;
-while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<3
+eps_omega=.0001;
+eps_v=.0001;
+theta=transpose(theta);
+while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
+    [T,~,~,~]=FK_body(theta,0);
     J_b=J_body(theta,2);
     T_bd=inv(T)*T_sd;
-    V_b_matrix=logm(T_bd)
+    V_b_matrix=logm(T_bd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
     V_b=[v_b; omega_b];
-    theta=theta+(pinv(J_b)*V_b);
+    theta=theta+(pinv(J_b)*V_b)
     i=i+1
 end
-if i==3
+if i==100
     error('theta could not converge')
 end
 end
