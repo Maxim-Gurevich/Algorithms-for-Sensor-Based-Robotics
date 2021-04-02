@@ -15,13 +15,13 @@ function theta=DLS_inverse_kinematics(T_sd,theta)
 %T_sd=M(:,:,end)
 
 i=0;
-damping=1;
+damping=.03;
 omega_b=[10 10 10];
 v_b=[10 10 10];
 eps_omega=.0001;
 eps_v=.0001;
 theta=transpose(theta);
-while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<20
+while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     [T,~,~,~]=FK_body(theta,0);
     J_b=J_body(theta,2);
     T_bd=inv(T)*T_sd;

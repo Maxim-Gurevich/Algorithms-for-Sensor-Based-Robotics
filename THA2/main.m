@@ -107,9 +107,6 @@ T_sd2=[0.09 -0.48 -0.87 .1;
 theta=redundancy_resolution(T_sd1,theta1)
 theta=redundancy_resolution(T_sd2,theta1)
 %%
-clc
-clear all
-close all
 theta1=[-.2 .3 1 -1 2 1.5 1];
 T_sd1=[0.09 -0.48 -0.87 0.0354;
     -0.98 0.08 -.14 0.25;
