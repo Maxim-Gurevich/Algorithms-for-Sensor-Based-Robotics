@@ -5,7 +5,7 @@ function theta=J_inverse_kinematics(T_sd,theta)
 %to control the robot from arbitrary configuration a to
 %desired configuration b.
 % Input: target configuration, current theta
-% Output: plot, new configuration, and final theta
+% Output: plot and final theta
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

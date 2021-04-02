@@ -7,16 +7,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%
-%[T_s,S,S_matrix,M]=FK_space(theta,graph)
+%FK_space.m
 %%
-%Roboplot(mode,varargin)
+%Roboplot.m
 %%
-%[T_b,B,B_matrix,M]=FK_body(theta,graph)
+%FK_body.m
 %%
-%[J_s]=J_space(theta,graph)
+%J_space.m
 %%
-%[J_b]=J_body(theta,graph)
+%J_body.m
 %%
+%singularity.m
 %singularity([1 2 ;4 5 ;7 8;10 11;13 14;16 17]);
 %singularity([1,2,3,4,5,6;7,8,9,10,11,12;13,14,15,16,17,18;19,20,21,22,23,24;25,26,27,28,29,30;31,32,33,34,35,36]);
 %singularity([1,2,3,7,35,6;7,8,9,10,111,12;13,14,125,16,17,18;19,20,21,22,23,24;25,26,27,28,29,30;31,35,33,34,35,36]);
@@ -31,13 +32,13 @@
 %%
 %J_ellipsoid_volume.m
 %%
-%theta=J_inverse_kinematics(T_sd,theta)
+%J_inverse_kinematics.m
 %%
-%theta=J_transpose_kinematics(T_sd,theta)
+%J_transpose_kinematics.m
 %%
-%theta=redundancy_resolution(T_sd,theta)
+%redundancy_resolution.m
 %%
-%theta=DLS_inverse_kinematics(T_sd,theta)
+%DLS_inverse_kinematics.m
 %%
 %BONUS_SIM.m
 
