@@ -19,7 +19,15 @@ graph=1;
 Roboplot('init','Title goes here')
 %Roboplot('frames',[1 0 0;0 1 0;0 0 1],[1 1 1],'test')
 %%
-%[T_b,B,B_matrix,M]=FK_body(theta,graph)
+clc
+theta1=[0 0 0 0 0 0 0];
+theta2=[-.2 .3 1 -1 2 1.5 1];
+theta3=[-.2 .3 1 -1];
+graph=1;
+
+[T_b1,B1,B_matrix1,M1]=FK_body(theta1,graph)
+[T_b2,B2,B_matrix2,M2]=FK_body(theta2,graph)
+[T_b3,B3,B_matrix3,M3]=FK_body(theta3,graph)
 %%
 %[J_s]=J_space(theta,graph)
 %%
