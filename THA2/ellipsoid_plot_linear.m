@@ -11,16 +11,17 @@ dims = size(jacobian);
 columns = dims(2);
 Jv = jacobian(4:6,1:columns);
 A = Jv*transpose(Jv);
-[eigenvalues,eigenvector] = eig(A); 
-eig_vals = diag(eigenvalues);%eigenvalues in a 1D vector
+[eigenvectors,eigenvalues] = eig(A); 
 
-[X,Y,Z] = ellipsoid(0,0,0,eig_vals(1),eig_vals(2),eig_vals(3));
+
+[X,Y,Z] = ellipsoid(0,0,0,eigenvalues(1,1),eigenvalues(2,2),eigenvalues(3,3));
 surf(X,Y,Z);
-title('Linear Ellipsoid Plot');
+title('Angular Linear Plot');
 grid on
 xlabel('v1')
 ylabel('v2')
 zlabel('v3')
 axis equal
-eig_vects = eigenvector; %eigenvectors are the columns
+eig_vals = diag(eigenvalues);%eigenvalues in a 1D vector
+eig_vects = eigenvectors; %eigenvectors are the columns
 end
