@@ -87,10 +87,6 @@ T_sd2=[0.09 -0.48 -0.87 .1;
 theta=J_transpose_kinematics(T_sd1,theta1)
 theta=J_transpose_kinematics(T_sd2,theta1)
 %%
-%theta=redundancy_resolution(T_sd,theta)
-clc
-clear all
-close all
 theta1=[-.2 .3 1 -1 2 1.5 1];
 T_sd1=[0.09 -0.48 -0.87 0.0354;
     -0.98 0.08 -.14 0.25;
@@ -104,7 +100,22 @@ T_sd2=[0.09 -0.48 -0.87 .1;
 theta=redundancy_resolution(T_sd1,theta1)
 theta=redundancy_resolution(T_sd2,theta1)
 %%
-%theta=DLS_inverse_kinematics(T_sd,theta)
+clc
+clear all
+close all
+theta1=[-.2 .3 1 -1 2 1.5 1];
+T_sd1=[0.09 -0.48 -0.87 0.0354;
+    -0.98 0.08 -.14 0.25;
+    0.14 0.87 -0.46 0.48
+    0 0 0 1];
+
+T_sd2=[0.09 -0.48 -0.87 .1;
+    -0.98 0.08 -.14 .1;
+    0.14 0.87 -0.46 .1;
+    0 0 0 1];
+
+theta=DLS_inverse_kinematics(T_sd1,theta1)
+theta=DLS_inverse_kinematics(T_sd2,theta1)
 %%
 %BONUS_SIM.m
 BONUS_SIM()
