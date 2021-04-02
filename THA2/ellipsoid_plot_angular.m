@@ -10,10 +10,10 @@ dims = size(jacobian);
 columns = dims(2);
 Jw = jacobian(1:3,1:columns);
 A = Jw*transpose(Jw);
-[eigenvalues,eigenvector] = eig(A); 
-eig_vals = diag(eigenvalues);%eigenvalues in a 1D vector
+[eigenvectors,eigenvalues] = eig(A); 
 
-[X,Y,Z] = ellipsoid(0,0,0,eig_vals(1),eig_vals(2),eig_vals(3));
+
+[X,Y,Z] = ellipsoid(0,0,0,eigenvalues(1,1),eigenvalues(2,2),eigenvalues(3,3));
 surf(X,Y,Z);
 title('Angular Ellipsoid Plot');
 grid on
@@ -21,7 +21,8 @@ xlabel('v1')
 ylabel('v2')
 zlabel('v3')
 axis equal
-eig_vects = eigenvector; %eigenvectors are the columns
+eig_vals = diag(eigenvalues);%eigenvalues in a 1D vector
+eig_vects = eigenvectors; %eigenvectors are the columns
 
 end
 
