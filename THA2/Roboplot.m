@@ -1,7 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: Plotter for testing
-% Input: 
-% Output: 
+% Description: Plotter
+% Input: plot mode followed by additional data...
+%       (specific to mode)
+% Output: new plot or new features inside...
+          %exsisting plot
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: 
-% Input: 
-% Output: 
+% Description: Calculation of the body...
+                %jacobian  and pdot...
+                %for Problem 3 of THA 2 
+% Input: N/A
+% Output: Jacobian and pdot
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 clear all
 clc
 syms L

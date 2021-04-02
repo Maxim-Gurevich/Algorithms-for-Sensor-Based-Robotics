@@ -4,8 +4,8 @@ function theta=J_transpose_kinematics(T_sd,theta)
 %uses the iterative numerical inverse kinematics algorithm
 %to control the robot from arbitrary configuration a to
 %desired configuration b.
-% Input: 
-% Output: 
+% Input: target configuration, current theta
+% Output: plot, new configuration, and final theta
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

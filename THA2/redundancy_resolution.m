@@ -3,9 +3,9 @@ function theta=redundancy_resolution(T_sd,theta)
 % Description: Using the derived forward kinematics and Jacobians,
 %uses the iterative numerical inverse kinematics algorithm
 %to control the robot from arbitrary configuration a to
-%desired configuration b.
-% Input: 
-% Output: 
+%desired configuration b. Also considers secondary objective function.
+% Input: target configuration, current theta
+% Output: plot, new configuration, and final theta
 % Date: 3/30/21 
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
