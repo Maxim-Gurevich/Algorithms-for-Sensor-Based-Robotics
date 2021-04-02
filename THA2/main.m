@@ -7,7 +7,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%
-clc
 theta1=[0 0 0 0 0 0 0];
 theta2=[-.2 .3 1 -1 2 1.5 1];
 theta3=[-.2 .3 1 -1];
@@ -20,7 +19,6 @@ graph=1;
 Roboplot('init','Title goes here')
 %Roboplot('frames',[1 0 0;0 1 0;0 0 1],[1 1 1],'test')
 %%
-clc
 theta1=[0 0 0 0 0 0 0];
 theta2=[-.2 .3 1 -1 2 1.5 1];
 theta3=[-.2 .3 1 -1];
@@ -63,7 +61,15 @@ J_ellipsoid_volume(a)
 J_ellipsoid_volume(c)
 
 %%
-%theta=J_inverse_kinematics(T_sd,theta)
+clear all
+close all
+clc
+theta1=[-.2 .3 1 -1 2 1.5 1];
+T_sd1=[0.09 -0.48 -0.87 0.03;
+    -0.98 0.08 -.15 0.26;
+    0.14 0.87 -0.47 0.49
+    0 0 0 1];
+theta=J_inverse_kinematics(T_sd1,theta1)
 %%
 %theta=J_transpose_kinematics(T_sd,theta)
 %%

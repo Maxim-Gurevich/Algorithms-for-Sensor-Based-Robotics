@@ -11,7 +11,7 @@ function theta=J_inverse_kinematics(T_sd,theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %theta=[0;0;0;0;0;0;.2];
-FK_body(theta,1);%to initiate graph
+[T_b,B1,B_matrix,M]=FK_body(theta,1);%to initiate graph
 %[J_b]=J_body(theta,0);
 %T_sd=M(:,:,end)
 
@@ -21,8 +21,8 @@ v_b=[10 10 10];
 eps_omega=.001;
 eps_v=.001;
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
-    J_b=FK_body(theta,2);
-    V_b_matrix=logm(inv(J_b)*T_sd);
+    J_b=J_body(theta,2);
+    V_b_matrix=logm(inv(T_b)*T_sd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
     omega_b=V_b_matrix(1:3,4);
     V_b=[v_b; omega_b];
