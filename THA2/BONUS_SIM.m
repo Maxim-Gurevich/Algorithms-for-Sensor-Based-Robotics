@@ -6,8 +6,8 @@
 % Date: 3/30/21 
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-SDA_10F = rigidBodyTree;
+configuration = [30,30,30,30,30,30,30,30];
+SDA_10F = rigidBodyTree();
 body1 = rigidBody('body1');
 
 waist = rigidBodyJoint('waist','revolute');
