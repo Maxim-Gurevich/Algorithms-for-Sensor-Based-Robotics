@@ -15,7 +15,7 @@ A = Jv*transpose(Jv);
 
 
 [X,Y,Z] = ellipsoid(0,0,0,eigenvalues(1,1),eigenvalues(2,2),eigenvalues(3,3));
-surf(X,Y,Z);
+%surf(X,Y,Z);
 title('Angular Linear Plot');
 grid on
 xlabel('v1')
