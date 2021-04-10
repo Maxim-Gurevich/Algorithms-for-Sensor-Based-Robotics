@@ -10,7 +10,7 @@ function theta=J_inverse_kinematics(T_sd,theta)
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-[T,B1,B_matrix,M]=FK_body(theta,1);%to initiate graph
+[T,B1,B_matrix,M]=FK_body(theta,1)%to initiate graph
 %[J_b]=J_body(theta,0);
 %T_sd=M(:,:,end)
 
