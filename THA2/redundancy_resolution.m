@@ -25,6 +25,8 @@ k=1;
 theta=transpose(theta);
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     [T,~,~,~]=FK_body(theta,0);
+    pause(.3);
+    J_b=J_body(theta,2);
     [length,vec_dir] = ellipsoid_plot_linear();
     ellipsoid_x = [];
     ellipsoid_y = [];
@@ -38,8 +40,6 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
         ellipsoid_y(end+1) = vec_dir(2,z)*-1*length(z);
         ellipsoid_z(end+1) = vec_dir(3,z)*-1*length(z);
     end
-    pause(.3);
-    J_b=J_body(theta,2);
     T_bd=inv(T)*T_sd;
     V_b_matrix=logm(T_bd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
