@@ -28,7 +28,7 @@ switch mode
             %'3\theta/4';'\theta'};
         plotOrientation(op,orientations,positions,labels);
     case 'points' %input:orientations,positions,labels
-        plotTrajectory(trajPlotter,trajCoordList)
+        plotTrajectory(trajPlotter,varargin{1})
     otherwise
         error('invalid input for "mode"')
 end
