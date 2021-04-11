@@ -11,7 +11,7 @@ function theta=redundancy_resolution(T_sd,theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %theta=[0;0;0;0;0;0;.2];
-[T,B1,B_matrix,M]=FK_body(theta,1);%to initiate graph
+[T,B1,B_matrix,M]=FK_body(theta,0);%to initiate graph
 %[J_b]=J_body(theta,0);
 %T_sd=M(:,:,end)
 i=0;
