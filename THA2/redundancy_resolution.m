@@ -32,7 +32,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     ellipsoid_y = [];
     ellipsoid_z = [];
     for z = 1:3
-        ellipsoid_x(end+1) = vec_dir(1,z)*length(z)
+        ellipsoid_x(end+1) = vec_dir(1,z)*length(z);
         ellipsoid_y(end+1) = vec_dir(2,z)*length(z);
         ellipsoid_z(end+1) = vec_dir(3,z)*length(z);
         
