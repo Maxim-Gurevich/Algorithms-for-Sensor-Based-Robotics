@@ -27,12 +27,12 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     [T,~,~,~]=FK_body(theta,0);
     pause(.3);
     J_b=J_body(theta,2);
-    [length,vec_dir] = ellipsoid_plot_linear();
+    [length,vec_dir] = ellipsoid_plot_linear(J_b);
     ellipsoid_x = [];
     ellipsoid_y = [];
     ellipsoid_z = [];
     for z = 1:3
-        ellipsoid_x(end+1) = vec_dir(1,z)*length(z);
+        ellipsoid_x(end+1) = vec_dir(1,z)*length(z)
         ellipsoid_y(end+1) = vec_dir(2,z)*length(z);
         ellipsoid_z(end+1) = vec_dir(3,z)*length(z);
         
@@ -40,7 +40,6 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
         ellipsoid_y(end+1) = vec_dir(2,z)*-1*length(z);
         ellipsoid_z(end+1) = vec_dir(3,z)*-1*length(z);
     end
-    Roboplot(
     T_bd=inv(T)*T_sd;
     V_b_matrix=logm(T_bd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
