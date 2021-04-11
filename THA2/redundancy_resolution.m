@@ -43,11 +43,24 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
         ellipsoid_z(end+1) = vec_dir(3,z)*-1*length(z);
     end
     s_points=[ellipsoid_x;ellipsoid_y;ellipsoid_z;0 0 0 0 0 0]
+    %create three rings to show elipse
+    ring_1 = [];
+    ring_2 = [];
+    ring_3 = [];
     for k=1:6
         new_point=T.*s_points(:,k)
-        b_points(1:3,k)=new_point(1:3);
+        if k<=2
+            ring_1(1:3,end+1)=new_point(1:3);
+            ring_2(1:3,end+1)=new_point(1:3);
+        elseif k<=4
+            ring_2(1:3,end+1)=new_point(1:3);
+            ring_3(1:3,end+1)=new_point(1:3);
+        else
+            ring_1(1:3,end+1)=new_point(1:3);
+            ring_3(1:3,end+1)=new_point(1:3);
+        end
     end
-    Roboplot('points', {b_points.'})
+    Roboplot('points', {ring_1.',ring_2.',ring_3.'})
     T_bd=inv(T)*T_sd;
     V_b_matrix=logm(T_bd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
