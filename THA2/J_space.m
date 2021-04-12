@@ -8,7 +8,6 @@ function [J_s]=J_space(theta,graph)
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%theta=[0 0 0 0 0 0];
 [~,S,S_matrix,~]=FK_space(theta,graph);
 
 J_s=zeros(6,length(theta));

@@ -24,7 +24,7 @@ mem_q=0;
 k=1;
 theta=transpose(theta);
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
-    [T,~,~,~]=FK_body(theta,0)
+    [T,~,~,~]=FK_body(theta,0);
     pause(.3);
     J_b=J_body(theta,2);
     
@@ -43,19 +43,19 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
         ellipsoid_y(end+1) = vec_dir(2,z)*-1*length(z)*scale;
         ellipsoid_z(end+1) = vec_dir(3,z)*-1*length(z)*scale;
     end
-    s_points=[ellipsoid_x;ellipsoid_y;ellipsoid_z;1 1 1 1 1 1]
+    s_points=[ellipsoid_x;ellipsoid_y;ellipsoid_z;1 1 1 1 1 1];
     %create three rings to show elipse
     line_1 = [];
     line_2 = [];
     line_3 = [];
     for k=1:6
-        new_point=T*s_points(:,k)
+        new_point=T*s_points(:,k);
         if k<=2
-            line_1(1:3,end+1)=new_point(1:3)
+            line_1(1:3,end+1)=new_point(1:3);
         elseif k<=4
-            line_2(1:3,end+1)=new_point(1:3)
+            line_2(1:3,end+1)=new_point(1:3);
         else
-            line_3(1:3,end+1)=new_point(1:3)
+            line_3(1:3,end+1)=new_point(1:3);
         end
     end
     Roboplot('points', {line_1.',line_2.',line_3.'})
