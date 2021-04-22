@@ -1,11 +1,5 @@
 function T = set_registration(A,B)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: % Generates Optimal Transformation Matrix T to go from set A to B
-% Input: 2 sets: rows are points [N,3]
-% Output: T [4,4]
-% Date: 4/22/21 
-% Author: Zahin Nambiar
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SET_REGISTRATION Returns Transformation Matrix T that transforms A to B
 %Step 1: Compute abar, bbar
 N = height(A);
 a_bar = sum(A,1)/N;
@@ -34,13 +28,9 @@ Ds = D(ind,ind);
 Vs = V(:,ind);
 
 q = Vs(:,4);
-R = [q(1)^2+q(2)^2-q(3)^2-q(4)^2,2*(q(2)*q(3)-q(1)*q(4)),2*(q(2)*q(4)+q(1)*q(3));
-     2*(q(2)*q(3)+q(1)*q(4)),q(1)^2-q(2)^2+q(3)^2-q(4)^2,2*(q(3)*q(4)-q(1)*q(2));
-     2*(q(2)*q(4)-q(1)*q(3)),2*(q(3)*q(4)+q(1)*q(2)),q(1)^2-q(2)^2-q(3)^2+q(4)^2];
-%Step 4: Find P 
-P = b_bar.'-R*a_bar.';
-
-T = [R [P(1);P(2);P(3)];
-     0 0 0 1];
+R = [q(1)^2+q(2)^2-q(3)^2-q(4)^2, 2*(q(2)*q(3)-q(1)*q(4)), 2*(q(2)*q(4)+q(1)*q(3);
+     2*(q(2)*q(3)+q(1)*q(4)) q(1)^2-q(2)^2+q(3)^2-q(4)^2 2*(q(3)*q(4)+q(1)*q(2));
+     2*(q(2)*q(4)-q(1)*q(3)) 2*(q(3)*q(4)+q(1)*q(2)) q(1)^2-q(2)^2-q(3)^2+q(4)^2]
+T = inputArg2;
 end
 
