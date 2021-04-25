@@ -9,9 +9,14 @@ for i=1:N
     beta(i)=log(R_B(i));
     M=M+beta(i)*alpha(i)'
 end
-R_x=sqrt(M'*M)*M';
-    %solve for t_x using least squares
 
+%solve for R_x
+R_x=sqrt(M'*M)*M';
+
+%solve for t_x using least squares
+C=
+D=
+t_x=C/D;
 %quaternion
     %Solve for R_x
     %solve for translation vector p_x
