@@ -7,17 +7,22 @@ close all
 for i=1:N
     alpha(i)=log(R_A(i));
     beta(i)=log(R_B(i));
-    M=M+beta(i)*alpha(i)'
+    M=M+beta(i)*alpha(i)';
 end
 
 %solve for R_x
 R_x=sqrt(M'*M)*M';
 
 %solve for t_x using least squares
-C=
-D=
+for i=1:N
+    C(i,:)=t_A(i)-R_x*t_B(i);
+    D(i,:)=eye(3)-R_A(i);
+end
 t_x=C/D;
 
 %quaternion
     %Solve for R_x
+    V=
+    y=[0 0 0 1]';
+    V_4=V*y;
     %solve for translation vector p_x

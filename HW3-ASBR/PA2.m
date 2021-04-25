@@ -22,4 +22,10 @@ t_x=C/D;
 
 %quaternion
     %Solve for R_x
+    for i=1:N
+        M=
+    end
+    V=M/U/sigma;
+    y=[0 0 0 1]';
+    V_4=V'*y;
     %solve for translation vector p_x
