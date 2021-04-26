@@ -20,15 +20,17 @@ for i=1:10
     M=M+beta(i)*alpha(i)';
 end
 
-%solve for R_x using eigen decomposition
-[Q,D]=eig(M);
-R_x=Q*D^(-1/2)*inv(Q)*M';
+%solve for R_x
+%need eigenvalue decomposition
+[Q,D] = eig(M)
+R_x=*M';
+
 %solve for t_x using least squares
 for i=1:10
-    E(i,:)=t_A-R_x*t_B;
-    F(i,:)=eye(3)-R_A(i);
+    C(i,:)=t_A-R_x*t_B;
+    D(i,:)=eye(3)-R_A(i);
 end
-%F*t_x=E;
+%D*t_x=C;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %quaternion method
