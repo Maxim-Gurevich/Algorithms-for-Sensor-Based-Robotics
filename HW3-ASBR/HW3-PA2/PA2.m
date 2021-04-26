@@ -4,7 +4,7 @@ close all
 
 %axis-angle method   
     %define matrix M
-for i=1:N
+for i=1:length(input from file)
     alpha(i)=log(R_A(i));
     beta(i)=log(R_B(i));
     M=M+beta(i)*alpha(i)';
@@ -34,16 +34,17 @@ t_x=C/D;
         M(:,:,i)=[s_a-s_b (v_a-v_b)';
             v_a-v_b (s_a-s_b)*eye(3)+skew];
     end
-    V=M/U/sigma;
-    y=[0 0 0 1]';
-    R_x=V'*y;%needs conversion to matrix?
+    [U,S,V]=svd(M);
+    y=[0;0;0;1];
+    q_x=V'*y;
     
     %solve for translation vector p_x
     %least squares -- A'*A*x=A'*b
-    R_ak=
-    p_ak=
-    p_bk=
-    
+    R_x=quat2rotmat(q_x);
+    %R_ak=info from function
+    %R_bk=info from function
+    %p_ak=info from funciton
+    %p_bk=info from function
     ATA=(R_ak-eye(3))'*(R_ak-eye(3));
     ATb=(R_ak-eye(3))*(R_x*p_bk-p_ak);
     p_x=ATb/ATA;
