@@ -1,4 +1,4 @@
-function [b_tip,b_post] = pivot_calibration(pivot_calib_data)
+function [b_tip,b_post] = pivot_calibration_opt(pivot_calib_data,Fd)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: % Generates tip vector relative to ee and post vector
 % relative to base frame
@@ -29,15 +29,17 @@ end
 R_matrix = zeros(data_frames*probe_markers*3,6);
 p_matrix = zeros(data_frames*probe_markers,1);
 for i=1:data_frames*probe_markers
-   R_matrix() = -1*eye(3);
+   R_matrix(3*(i-1)+1:3*(i-1)+3,4:6) = -1*eye(3);
    T = set_registration(data1,data);
-   R_matrix(3*(i-1)+1:3*(i-1)+3,2) = T(1:3,1:3);
-   p_matrix(i,1) = -1*T(1:3,4);
+   R_matrix(3*(i-1)+1:3*(i-1)+3,1:3) = T(1:3,1:3);
+   p_matrix(3*(i-1)+1:3*(i-1)+3,1) = -1*T(1:3,4);
 end
-b = inv(R_matrix)*p_matrix;
 
-b_tip = b(1);
-b_post = b(2);
+b = pinv(R_matrix)*p_matrix;
+
+b_tip = b(1:3,1);
+b_post = b(4:6,1);
 end
+
 
 

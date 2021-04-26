@@ -1,9 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: % 
-% Input: D A C d a c (distortion calibration dataset)
-% Output: Expected C
 % Date: 4/25/21 
-% Author: Zahin Nambiar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Find FD like in P3. Remember to make sure all text files have the same
+% letter!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 local = importdata('HW3-PA1_DATA/pa1-debug-a-calbody.txt');
 base = importdata('HW3-PA1_DATA/pa1-debug-a-calreadings.txt');
@@ -49,3 +47,11 @@ for i=1:Nframes
         C(Nc*(i-1)+j,:)= inv(F_D_matrix)*F_A_matrix*(c(j,:)).';
     end
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% transform the optical tracker beacon positions into EM tracker 
+%coordinates using Fd
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+[em_tip,em_post] = pivot_calibration('HW3-PA1_DATA/pa1-debug-a-empivot.txt')
