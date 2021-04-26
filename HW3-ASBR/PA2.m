@@ -3,13 +3,13 @@ clear all
 close all
 
 %import
-data=data_quternion()
+data=data_quaternion();
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %axis-angle method
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %define matrix M
-for i=1:length(input from file)
+for i=1:length(data(:,1))
     alpha(i)=log(R_A(i));
     beta(i)=log(R_B(i));
     M=M+beta(i)*alpha(i)';
