@@ -23,9 +23,20 @@ t_x=C/D;
 %quaternion
     %Solve for R_x
     for i=1:N
-        M(i)
+        s_a=
+        v_a=
+        s_b=
+        v_b=
+        M(:,:,i)=[s_a-s_b (v_a-v_b)';
+            v_a-v_b (s_a-s_b)*eye(3)+(v_a+v_b)];
     end
     V=M/U/sigma;
     y=[0 0 0 1]';
     V_4=V'*y;
     %solve for translation vector p_x
+    
+    
+    
+    
+    
+    
