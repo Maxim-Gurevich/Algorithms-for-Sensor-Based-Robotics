@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-%axis-angle   
+%axis-angle method   
     %define matrix M
 for i=1:N
     alpha(i)=log(R_A(i));
@@ -20,13 +20,36 @@ for i=1:N
 end
 t_x=C/D;
 
-%quaternion
+%quaternion method
     %Solve for R_x
     for i=1:N
+        s_a=q_a(1);
+        v_a=q_a(2:4);
+        s_b=q_b(1);
+        v_b=q_b(2:4);
+        vec=v_a+v_b;
+        skew=[0 -vec(3) vec(2);
+            vec(3) 0 -vec(1);
+            -vec(2) vec(1) 0];
         M(:,:,i)=[s_a-s_b (v_a-v_b)';
-            v_a-v_b (s_a-s_b)*eye(3)+(v_a+v_b)];
+            v_a-v_b (s_a-s_b)*eye(3)+skew];
     end
     V=M/U/sigma;
     y=[0 0 0 1]';
-    V_4=V'*y;
+    R_x=V'*y;%needs conversion to matrix?
+    
     %solve for translation vector p_x
+    %least squares -- A'*A*x=A'*b
+    R_ak=
+    p_ak=
+    p_bk=
+    
+    ATA=(R_ak-eye(3))'*(R_ak-eye(3));
+    ATb=(R_ak-eye(3))*(R_x*p_bk-p_ak);
+    p_x=ATb/ATA;
+    
+    
+    
+    
+    
+    
