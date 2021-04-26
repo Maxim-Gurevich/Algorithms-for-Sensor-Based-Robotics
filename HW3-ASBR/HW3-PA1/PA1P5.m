@@ -3,8 +3,8 @@
 % Find FD like in P3. Remember to make sure all text files have the same
 % letter!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-local = importdata('HW3-PA1_DATA/pa1-debug-a-calbody.txt');
-base = importdata('HW3-PA1_DATA/pa1-debug-a-calreadings.txt');
+local = importdata('HW3-PA1_DATA/pa1-debug-c-calbody.txt');
+base = importdata('HW3-PA1_DATA/pa1-debug-c-calreadings.txt');
 
 local_info = strsplit(cell2mat(local.textdata(1)),",");
 base_info = strsplit(cell2mat(base.textdata(1)),",");
@@ -54,4 +54,4 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-[opt_tip,opt_post] = pivot_calibration_opt('HW3-PA1_DATA/pa1-debug-a-empivot.txt',F_D_matrix)
+[opt_tip,opt_post] = pivot_calibration_opt('HW3-PA1_DATA/pa1-debug-c-optpivot.txt',F_D_matrix)

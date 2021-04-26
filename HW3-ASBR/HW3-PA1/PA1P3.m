@@ -5,8 +5,8 @@
 % Date: 4/25/21 
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-local = importdata('HW3-PA1_DATA/pa1-debug-a-calbody.txt');
-base = importdata('HW3-PA1_DATA/pa1-debug-a-calreadings.txt');
+local = importdata('HW3-PA1_DATA/pa1-debug-b-calbody.txt');
+base = importdata('HW3-PA1_DATA/pa1-debug-b-calreadings.txt');
 
 local_info = strsplit(cell2mat(local.textdata(1)),",");
 base_info = strsplit(cell2mat(base.textdata(1)),",");
