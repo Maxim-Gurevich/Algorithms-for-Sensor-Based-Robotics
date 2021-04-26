@@ -2,9 +2,9 @@ function [b_tip,b_post] = pivot_calibration_opt(pivot_calib_data,Fd)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: % Generates tip vector relative to ee and post vector
 % relative to base frame
-% Input: pivot.txt file
+% Input: opt_pivot.txt file and base transform
 % Output: b_tip and b_post[1,3]
-% Date: 4/23/21 
+% Date: 4/25/21 
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A = importdata(pivot_calib_data);
