@@ -19,7 +19,7 @@ Nframe = size(Fd,1)/4;
 Ntrackers = size(data,1)/Nframe;
 for z=1:Nframe
 for i=1:Ntrackers
-    data(Ntrackers*(z-1)+i,1:4) = inv(Fd(4*(z-1)+1:4*(z-1)+4,:))*(data(Ntrackers*(z-1)+i,1:4).');
+    data(Ntrackers*(z-1)+i,1:4) = inv(Fd)*(data(i,1:4).');
 end
 end
 data1 = data;

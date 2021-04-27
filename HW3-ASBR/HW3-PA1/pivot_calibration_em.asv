@@ -26,8 +26,8 @@ for i=1:data_frames
    end
 end
 
-%data = [data , ones(data_frames*probe_markers,1)];
-%data1 = [data1 , ones(data_frames*probe_markers,1)];
+data = [data , ones(data_frames*probe_markers,1)];
+data1 = [data1 , ones(data_frames*probe_markers,1)];
 R_matrix = zeros(data_frames*3,6);
 p_matrix = zeros(data_frames*3,1);
 

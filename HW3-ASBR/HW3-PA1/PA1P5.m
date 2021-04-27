@@ -39,9 +39,10 @@ for i=1:Nframes
         A(NA*(i-1)+j,:) = base_data((ND+NA+NC)*(i-1)+ND+j,:);
     end
 end
-
+F_D = zeros(4*Nframes,4);
 for i=1:Nframes
     F_D_matrix = set_registration(d,D(ND*(i-1)+1:ND*(i-1)+ND,:));
+    F_D(4*(i-1)+1:4*(i-1)+4,:) = F_D_matrix;
     F_A_matrix = set_registration(a,A(NA*(i-1)+1:NA*(i-1)+NA,:));
     for j=1:Nc
         C(Nc*(i-1)+j,:)= inv(F_D_matrix)*F_A_matrix*(c(j,:)).';
@@ -50,8 +51,8 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % transform the optical tracker beacon positions into EM tracker 
-%coordinates using Fd
+%coordinates using Fd for each frame
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-[opt_tip,opt_post] = pivot_calibration_opt('HW3-PA1_DATA/pa1-debug-c-optpivot.txt',F_D_matrix)
+[opt_tip,opt_post] = pivot_calibration_opt('HW3-PA1_DATA/pa1-debug-c-optpivot.txt',F_D)
