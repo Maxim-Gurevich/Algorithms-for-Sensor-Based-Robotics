@@ -23,7 +23,7 @@ end
 %solve for R_x using eigen decomposition
 [Q,D]=eig(M'*M);
 sqD=[1/sqrt(D(1,1)) 0 0;0 1/sqrt(D(2,2)) 0;0 0 1/sqrt(D(3,3))];
-R_x=Q*sqD*inv(Q)*M';
+R_x=Q*sqD*inv(Q)*M'
 
 %solve for t_x using least squares
 for i=1:10
@@ -33,7 +33,7 @@ for i=1:10
     E(3*(i-1)+1:3*(i-1)+3,:)=t_A-R_x*t_B;
     F(3*(i-1)+1:3*(i-1)+3,:)=eye(3)-R_A;
 end
-t_x=pinv(F)*E;
+t_x=pinv(F)*E
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %quaternion method
@@ -58,7 +58,7 @@ y=[0;0;0;1];
 q_x=V'*y;
 
 %solve for translation vector p_x
-R_xq=Quat2RotMat(q_x);
+R_xq=Quat2RotMat(q_x)
 for i=1:10
     R_A=Quat2RotMat(q_Robot_config(i,:));
     t_a=t_Robot_config(i,:)';
@@ -66,7 +66,7 @@ for i=1:10
     E(3*(i-1)+1:3*(i-1)+3,:)=R_xq*t_a-t_a;
     F(3*(i-1)+1:3*(i-1)+3,:)=R_A-eye(3);
 end
-t_xq=pinv(F)*E;
+t_xq=pinv(F)*E
 
     
     
