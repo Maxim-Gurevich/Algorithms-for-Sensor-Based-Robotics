@@ -26,7 +26,9 @@ num=10;%number of data points considered
 R_Matrix_Difference_Norm=Matrix_Difference_Norm(R_x,R_xq)
 t_x_Vector_Difference_Norm=norm(t_x-t_xq)
     
-    
+%noisy data
+
+%half data
     
     
     

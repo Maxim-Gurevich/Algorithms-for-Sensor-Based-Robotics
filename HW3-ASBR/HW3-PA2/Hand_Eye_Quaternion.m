@@ -1,5 +1,6 @@
 function [R_x,t_x]=Hand_Eye_Quaternion(q_Robot_config,...
     q_camera_config,t_Robot_config,t_camera_config,num)
+
     %Solve for R_x
     for i=1:num
         s_a=q_Robot_config(i,1);
