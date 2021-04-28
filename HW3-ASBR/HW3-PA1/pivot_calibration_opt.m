@@ -1,4 +1,4 @@
-function [b_tip,b_post] = pivot_calibration_opt(pivot_calib_data,Fd)
+function [b_tip,b_post] = pivot_calibration_opt(pivot_calib_data,cal_body_data)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description: % Generates tip vector relative to ee and post vector
 % relative to base frame
@@ -8,40 +8,67 @@ function [b_tip,b_post] = pivot_calibration_opt(pivot_calib_data,Fd)
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A = importdata(pivot_calib_data);
+local = importdata(cal_body_data);
+
+local_info = strsplit(cell2mat(local.textdata(1)),",");
+Nd = str2double(cell2mat(local_info(1)));
+
+local_data = local.data;
+d = local_data(1:Nd,:);
+
 text = cell2mat(A.textdata(1));
 text = strsplit(text, ", ");
 em_base_markers = str2double(cell2mat(text(1)));
 probe_markers = str2double(cell2mat(text(2)));
 data_frames = str2double(cell2mat(text(3)));
-data = [A.data ones(size(A.data,1),1)];
-%convert data to EM tracker coordinates
-Nframe = size(Fd,1)/4;
-Ntrackers = size(data,1)/Nframe;
-for z=1:Nframe
-for i=1:Ntrackers
-    data(Ntrackers*(z-1)+i,1:4) = inv(Fd(4*(z-1)+1:4*(z-1)+4,:))*(data(Ntrackers*(z-1)+i,1:4).');
-end
-end
-data1 = data;
-midpoints = [zeros(data_frames,3) ones(data_frames,1)];
-for i=1:data_frames
-    for j=1:probe_markers
-        midpoints(i,:) = midpoints(i,:) + data((i-1)*probe_markers+j+em_base_markers,:);
-    end
-    midpoints(i,:) = midpoints(i,:)/probe_markers;
-end
+data = A.data; 
+
+%Generate Fd
+F_D = zeros(4*data_frames,4);
+D = zeros(data_frames*em_base_markers,3);
 
 for i=1:data_frames
-   for j=1:probe_markers
-      data1((i-1)*probe_markers+j,:) = data((i-1)*probe_markers+j+em_base_markers,:) - midpoints(i,:);  
-   end
+    for j=1:em_base_markers
+        D(em_base_markers*(i-1)+j,:) = data((em_base_markers+probe_markers)*(i-1)+j,:);
+    end
 end
+
+
+for i=1:data_frames
+  F_D_matrix = set_registration(d,D(em_base_markers*(i-1)+1:em_base_markers*(i-1)+em_base_markers,:));  
+  F_D(4*(i-1)+1:4*(i-1)+4,:) = F_D_matrix;
+end
+%convert data to EM tracker coordinates
+
+data = [data ones(data_frames*(em_base_markers+probe_markers),1)];
+
+for z=1:data_frames
+    for i=1:em_base_markers+probe_markers
+        data((em_base_markers+probe_markers)*(z-1)+i,1:4) = inv(F_D(4*(z-1)+1:4*(z-1)+4,:))*(data((em_base_markers+probe_markers)*(z-1)+i,1:4).');
+    end
+end
+
+data = data(:,1:3);
+data1 = zeros(probe_markers,3);
+midpoint = zeros(1,3);
+
+for j=1:probe_markers
+    midpoint = midpoint + data(j+em_base_markers,:);
+end
+midpoint = midpoint/probe_markers;
+
+
+for j=1:probe_markers
+   data1(j,:) = data(j+em_base_markers,:) - midpoint;  
+end
+
 
 R_matrix = zeros(data_frames*3,6);
 p_matrix = zeros(data_frames*3,1);
 for i=1:data_frames
    R_matrix(3*(i-1)+1:3*(i-1)+3,4:6) = -1*eye(3);
-   T = set_registration(data1(probe_markers*(i-1)+1:probe_markers*(i-1)+probe_markers,1:3),data(probe_markers*(i-1)+1:probe_markers*(i-1)+probe_markers,1:3));
+   H = data((em_base_markers+probe_markers)*(i-1)+em_base_markers+1:(em_base_markers+probe_markers)*(i-1)+em_base_markers+probe_markers,:);
+   T = set_registration(data1,H);
    R_matrix(3*(i-1)+1:3*(i-1)+3,1:3) = T(1:3,1:3);
    p_matrix(3*(i-1)+1:3*(i-1)+3,1) = -1*T(1:3,4);
 end
