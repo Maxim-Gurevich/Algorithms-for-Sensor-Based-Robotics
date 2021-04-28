@@ -69,8 +69,8 @@ end
 t_xq=pinv(F)*E
 
 %error measurement
-
-
+R_Matrix_Difference_Norm=Matrix_Difference_Norm(R_x,R_xq)
+t_x_Difference=norm(t_x-t_xq)
     
     
     
