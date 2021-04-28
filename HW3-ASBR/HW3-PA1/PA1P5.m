@@ -7,4 +7,4 @@
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-[opt_tip,opt_post] = pivot_calibration_opt('HW3-PA1_DATA/pa1-debug-a-optpivot.txt','HW3-PA1_DATA/pa1-debug-a-calbody.txt')
+[opt_tip,opt_post] = pivot_calibration_opt('HW3-PA1_DATA/pa1-unknown-k-optpivot.txt','HW3-PA1_DATA/pa1-unknown-k-calbody.txt')
