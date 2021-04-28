@@ -23,7 +23,7 @@ end
 %solve for R_x using eigen decomposition
 [Q,D]=eig(M.'*M);
 sqD=[1/sqrt(D(1,1)) 0 0;0 1/sqrt(D(2,2)) 0;0 0 1/sqrt(D(3,3))];
-R_x=Q*sqD*inv(Q)*M.'
+R_x=Q*sqD/Q*M.'
 
 %solve for t_x using least squares
 for i=1:num
@@ -70,7 +70,7 @@ t_xq=pinv(F)*E
 
 %error measurement
 R_Matrix_Difference_Norm=Matrix_Difference_Norm(R_x,R_xq)
-t_x_Difference=norm(t_x-t_xq)
+t_x_Vector_Difference_Norm=norm(t_x-t_xq)
     
     
     
