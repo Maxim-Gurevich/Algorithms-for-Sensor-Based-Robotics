@@ -23,15 +23,15 @@ end
 %solve for R_x using eigen decomposition
 [Q,D]=eig(M.'*M);
 sqD=[1/sqrt(D(1,1)) 0 0;0 1/sqrt(D(2,2)) 0;0 0 1/sqrt(D(3,3))];
-R_x=Q*sqD*inv(Q)*M.'
+R_x=Q*sqD/Q*M.'
 
 %solve for t_x using least squares
 for i=1:num
     t_A=t_Robot_config(i,:).';
     t_B=t_camera_config(i,:).';
     R_A=Quat2RotMat(q_Robot_config(i,:));
-    E(3*(i-1)+1:3*(i-1)+3,:)=t_A-R_x*t_B;
-    F(3*(i-1)+1:3*(i-1)+3,:)=eye(3)-R_A;
+    E(3*(i-1)+1:3*(i-1)+3,:)=R_x*t_B-t_A;
+    F(3*(i-1)+1:3*(i-1)+3,:)=R_A-eye(3);
 end
 t_x=pinv(F)*E
 
@@ -55,7 +55,7 @@ for i=1:num
 end
 [U,S,V]=svd(M);
 y=[0;0;0;1];
-q_x=V.'*y;
+q_x=V*y;
 
 %solve for translation vector p_x
 R_xq=Quat2RotMat(q_x)
@@ -68,6 +68,9 @@ for i=1:num
 end
 t_xq=pinv(F)*E
 
+%error measurement
+R_Matrix_Difference_Norm=Matrix_Difference_Norm(R_x,R_xq)
+t_x_Vector_Difference_Norm=norm(t_x-t_xq)
     
     
     

@@ -39,6 +39,7 @@ t_x=pinv(F)*E
 %quaternion method
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Solve for R_x
+clear M
 for i=1:num
     s_a=q_Robot_config(i,1);
     v_a=q_Robot_config(i,2:4);
@@ -48,14 +49,14 @@ for i=1:num
     skew=[0   -vec(3) vec(2);
         vec(3)  0    -vec(1);
        -vec(2) vec(1)   0];
-    M(3*(i-1)+1,1)=s_a-s_b;
-    M(3*(i-1)+1,2:4)=-(v_a-v_b).';
-    M(3*(i-1)+2:3*(i-1)+4,1)=v_a-v_b;
-    M(3*(i-1)+2:3*(i-1)+4,2:4)=(s_a-s_b)*eye(3)+skew;
+    M(4*(i-1)+1,1)=s_a-s_b;
+    M(4*(i-1)+1,2:4)=-(v_a-v_b).';
+    M(4*(i-1)+2:4*(i-1)+4,1)=v_a-v_b;
+    M(4*(i-1)+2:4*(i-1)+4,2:4)=(s_a-s_b)*eye(3)+skew;
 end
 [U,S,V]=svd(M);
 y=[0;0;0;1];
-q_x=V.'*y;
+q_x=V*y;
 
 %solve for translation vector p_x
 R_xq=Quat2RotMat(q_x)
