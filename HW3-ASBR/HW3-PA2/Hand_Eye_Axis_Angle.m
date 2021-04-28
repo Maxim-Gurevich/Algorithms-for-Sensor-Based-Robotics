@@ -4,10 +4,10 @@ function [R_x,t_x]=Hand_Eye_Axis_Angle(q_Robot_config,...
     %define matrix M
     M=zeros(3);
     for i=1:num
-        R_A=Quat2RotMat(q_Robot_config(i,:))
-        R_B=Quat2RotMat(q_camera_config(i,:))
-        alpha=logm(R_A)
-        beta=logm(R_B)
+        R_A=Quat2RotMat(q_Robot_config(i,:));
+        R_B=Quat2RotMat(q_camera_config(i,:));
+        alpha=logm(R_A);
+        beta=logm(R_B);
         M=M+(beta*alpha.');
         %M(3*(i-1)+1:3*(i-1)+3,:)=beta*alpha.'
     end

@@ -1,12 +1,18 @@
 clc
 clear all
 close all
+%function [R_x,t_x,R_xq,t_x]=
+noise=1;
+num=5;%number of data points considered
 
 %import
-[q_Robot_config, q_camera_config,t_Robot_config,...
-    t_camera_config ]=data_quaternion();
-
-num=10;%number of data points considered
+if noise==1
+    [q_Robot_config, q_camera_config,t_Robot_config,...
+        t_camera_config ]=data_quaternion();
+else
+        [q_Robot_config, q_camera_config,t_Robot_config,...
+        t_camera_config ]=data_quaternion_noisy();
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %axis-angle method
@@ -25,10 +31,5 @@ num=10;%number of data points considered
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 R_Matrix_Difference_Norm=Matrix_Difference_Norm(R_x,R_xq)
 t_x_Vector_Difference_Norm=norm(t_x-t_xq)
-    
-%noisy data
-
-%half data
-    
     
     
