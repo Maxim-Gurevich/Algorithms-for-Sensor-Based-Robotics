@@ -9,7 +9,6 @@ function [R_x,t_x]=Hand_Eye_Axis_Angle(q_Robot_config,...
         alpha=logm(R_A);
         beta=logm(R_B);
         M=M+(beta*alpha.');
-        %M(3*(i-1)+1:3*(i-1)+3,:)=beta*alpha.'
     end
 
     %solve for R_x using eigen decomposition
