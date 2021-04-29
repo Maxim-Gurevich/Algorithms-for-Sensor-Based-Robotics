@@ -2,6 +2,7 @@ function [R_x,t_x]=Hand_Eye_Quaternion(q_Robot_config,...
     q_camera_config,t_Robot_config,t_camera_config,num)
 
     %Solve for R_x
+    clear M
     for i=1:num
         s_a=q_Robot_config(i,1);
         v_a=q_Robot_config(i,2:4);
@@ -20,13 +21,13 @@ function [R_x,t_x]=Hand_Eye_Quaternion(q_Robot_config,...
     y=[0;0;0;1];
     q_x=V*y;
 
-    %solve for translation vector p_x
+    %solve for translation vector t_x
     R_x=Quat2RotMat(q_x);
     for i=1:num
         R_A=Quat2RotMat(q_Robot_config(i,:));
-        t_a=t_Robot_config(i,:).';
-        t_b=t_camera_config(i,:).';
-        E(3*(i-1)+1:3*(i-1)+3,:)=R_x*t_b-t_a;
+        p_a=t_Robot_config(i,:).';
+        p_b=t_camera_config(i,:).';
+        E(3*(i-1)+1:3*(i-1)+3,:)=R_x*p_b-p_a;
         F(3*(i-1)+1:3*(i-1)+3,:)=R_A-eye(3);
     end
     t_x=pinv(F)*E;
