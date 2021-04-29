@@ -1,3 +1,10 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Uses Quaternion method to solve AX=XB 
+% Input: robot and DRF transformation data
+% Output: Solved rotation matrix and translation vector
+% Date: 4/28/21 
+% Author: Maxim Gurevich
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [R_x,t_x]=Hand_Eye_Quaternion(q_Robot_config,...
     q_camera_config,t_Robot_config,t_camera_config,num)
 

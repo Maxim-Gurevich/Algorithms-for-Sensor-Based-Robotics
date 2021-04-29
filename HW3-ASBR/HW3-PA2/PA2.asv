@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: Tests Hand-Eye Algorithms 
-% Input: N/A
-% Output: Hand-Eye outputs, error measures
-% Date: 4/28/21 
-% Author: Maxim Gurevich
+% Description: Te 
+% Input: D A C d a c (distortion calibration dataset)
+% Output: Expected C
+% Date: 4/25/21 
+% Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc
 clear all
