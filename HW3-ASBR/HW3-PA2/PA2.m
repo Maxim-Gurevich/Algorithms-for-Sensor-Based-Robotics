@@ -3,7 +3,7 @@ clear all
 close all
 %function [R_x,t_x,R_xq,t_x]=
 noise=1;
-num=10;%number of data points considered
+num=5%number of data points considered
 
 %import
 if noise==1
