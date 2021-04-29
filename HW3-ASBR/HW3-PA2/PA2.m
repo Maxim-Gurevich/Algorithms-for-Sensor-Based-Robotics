@@ -8,10 +8,11 @@ num=5;%number of data points considered
 %import
 if noise==1
     [q_Robot_config, q_camera_config,t_Robot_config,...
-        t_camera_config ]=data_quaternion();
-else
-        [q_Robot_config, q_camera_config,t_Robot_config,...
         t_camera_config ]=data_quaternion_noisy();
+    
+else
+     [q_Robot_config, q_camera_config,t_Robot_config,...
+        t_camera_config ]=data_quaternion();   
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
