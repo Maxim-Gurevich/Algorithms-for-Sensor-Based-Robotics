@@ -16,7 +16,7 @@ t_skew = -1.*[0 -t(3) t(2); t(3) 0 -t(1); -t(2) t(1) 0];
 C = t_skew*J_s(1:3,:) + J_s(4:6,:);
 d = p_goal - t;
 
-delta_q = lsqlin(C,d,[],[],[],[],-2*pi()-q,2*pi()-q);
+delta_q = lsqlin(C,d,[],[],[],[],-pi()-q,pi()-q);
 q = q + delta_q;
 [TT,~,~,~]=FK_space(q,0);
 t = TT(:,:,6)*[p_tip;1]
