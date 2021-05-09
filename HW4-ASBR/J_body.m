@@ -8,7 +8,6 @@ function [J_b]=J_body(theta,graph)
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%theta=[0 0 0 0 0 0];
 [~,B,B_matrix,~]=FK_body(theta,graph);
 
 n=length(theta);
