@@ -6,4 +6,4 @@
 % Date: 4/27/21 
 % Author: Zahin Nambiar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[em_tip,em_post] = pivot_calibration_em('HW3-PA1_DATA/pa1-debug-a-empivot.txt')
+[em_tip,em_post] = pivot_calibration_em('HW3-PA1_DATA/pa1-unknown-k-empivot.txt')
