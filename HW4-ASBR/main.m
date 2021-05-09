@@ -17,7 +17,7 @@ graph=1;
 [T_s3,S3,S_matrix3,M3]=FK_space(theta3,graph)
 %%
 Roboplot('init','Title goes here')
-%Roboplot('frames',[1 0 0;0 1 0;0 0 1],[1 1 1],'test')
+Roboplot('frames',[1 0 0;0 1 0;0 0 1],[1 1 1],'test')
 %%
 theta1=[0 0 0 0 0 0 0];
 theta2=[-.2 .3 1 -1 2 1.5 1];
@@ -79,7 +79,7 @@ T_sd2=[0.09 -0.48 -0.87 .1;
     0.14 0.87 -0.46 .1;
     0 0 0 1];
 theta=J_inverse_kinematics(T_sd1,theta1)
-theta=J_inverse_kinematics(T_sd2,theta1)
+%theta=J_inverse_kinematics(T_sd2,theta1)
 %%
 theta1=[-.2 .3 1 -1 2 1.5 1];
 T_sd1=[0.09 -0.48 -0.87 0.03;
