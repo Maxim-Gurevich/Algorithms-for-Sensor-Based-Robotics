@@ -6,7 +6,7 @@ p_goal = [0.3;0.3;0.0]; %Goal for p_tip to move to (in space frame)
 radius = .03; %Acceptable radius from p_goal
 p_tip = [0.0;0.0;-0.1]; %Ptip coordinates (last frame of the robot chain)
 q = [.5;.5;.5;.5;.5;.5]; %initial theta values
-[TT,~,~,~]=FK_space(q,0);
+[TT,~,~,~]=FK_space(q,1);
 
 t = TT(:,:,6)*[p_tip;1]
 t = t(1:3,:);
@@ -18,7 +18,7 @@ d = p_goal - t;
 
 delta_q = lsqlin(C,d,[],[],[],[],-q,2*pi()-q);
 q = q + delta_q;
-[TT,~,~,~]=FK_space(q,0);
+[TT,~,~,~]=FK_space(q,2);
 t = TT(:,:,6)*[p_tip;1]
 t = t(1:3,:);
 %--------------------------------
