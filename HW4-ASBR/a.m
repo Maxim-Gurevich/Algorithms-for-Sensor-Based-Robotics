@@ -2,9 +2,9 @@ clc
 clear all
 close all
 
-p_goal = [1.0;1.0;1.0];
-radius = .03;
-p_tip = [0.0;0.0;0.1];
+p_goal = [1.0;1.0;1.0]; %Goal for p_tip to move to
+radius = .03; %Acceptable radius from p_goal
+p_tip = [0.0;0.0;0.1]; %Ptip coordinates defined in the last frame of the robot chain
 q = [.5;.5;.5;.5;.5;.5]; %initial theta values
 [TT,~,~,~]=FK_space(q,0);
 
