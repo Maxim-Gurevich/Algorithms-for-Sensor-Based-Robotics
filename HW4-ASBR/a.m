@@ -3,6 +3,7 @@ clear all
 close all
 
 p_goal = [0.3;0.15;0.12]; %Goal for p_tip to move to (in space frame)
+p_goal = [0.1;.5;.1];
 radius = .003; %Acceptable radius from p_goal
 p_tip = [0.0;0.0;0.1]; %Ptip coordinates (last frame of the robot chain)
 q = [.5;.5;.5;.5;.5;.5]; %initial theta values
