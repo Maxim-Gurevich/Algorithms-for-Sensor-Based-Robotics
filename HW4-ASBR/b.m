@@ -19,17 +19,17 @@ J_s = J_space(q,0);
 R=TT(1:3,1:3,7);
 t_skew = -1.*[0 -t(3) t(2); t(3) 0 -t(1); -t(2) t(1) 0];
 Rz_skew=[0 -R(3,3) R(2,3); -R(3,3) 0 -R(1,3); -R(2,3) R(1,3) 0];
-C = t_skew*J_s(1:3,:) + J_s(4:6,:)+10*(-Rz_skew*J_s(4:6,:));
+C = t_skew*J_s(1:3,:) + J_s(4:6,:);%+10*(-Rz_skew*J_s(4:6,:));
 d = p_goal - t;
 % A=[cos(u1i) cos(u1i) cos(u1i) sin(u1i) sin(u1i) 0 0 0;
 %     ];
 w=100*ones(3,1);
-delta_q = lsqlin(C,d,[],[],[],[],...
-    [],[]);
+delta_q = lsqlin(C,d,[],[],[],[],[],[]);
 q = q + delta_q;
 [TT,~,~,~]=FK_space(q,2);
 t = TT(:,:,7)*[p_tip;1];
 t = t(1:3,:);
+%Roboplot('points',t)
 norm(t-p_goal);
 i=i+1
 end
