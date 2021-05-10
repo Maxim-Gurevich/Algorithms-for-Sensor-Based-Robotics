@@ -22,7 +22,7 @@ eps_v=.0001;
 theta=transpose(theta);
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     [T,~,~,~]=FK_body(theta,0);
-    pause(.3);
+    pause(.01);
     J_b=J_body(theta,2);
     title('J inverse kinematics')
     T_bd=inv(T)*T_sd;
