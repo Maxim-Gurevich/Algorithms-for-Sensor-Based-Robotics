@@ -11,7 +11,6 @@ q = [.5;.5;.5;.5;.5;.5]; %initial theta values
 t = TT(:,:,6)*[p_tip;1];
 t = t(1:3,:);
 
-
 while norm(t-p_goal) > radius
 J_s = J_space(q,0);
 t_skew = -1.*[0 -t(3) t(2); t(3) 0 -t(1); -t(2) t(1) 0];
