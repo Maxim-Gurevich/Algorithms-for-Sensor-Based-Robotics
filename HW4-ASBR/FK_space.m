@@ -9,7 +9,7 @@ function [T_s,S,S_matrix,M]=FK_space(theta,graph)
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [rpy,xyz,axis_xyz]=config();
-p_tip = [0.0;0.0;0.1];
+p_tip = [0.0;0;0.1];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %determines M for all joints
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
