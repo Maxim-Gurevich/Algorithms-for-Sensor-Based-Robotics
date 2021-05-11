@@ -2,10 +2,11 @@ clc
 clear all
 close all
 
-p_goal = [0;0.5;0.1]; %Goal for p_tip to move to (in space frame)
+p_goal = [0;0.4;0.1]; %Goal for p_tip to move to (in space frame)
 radius = .0001; %Acceptable radius from p_goal
 p_tip = [0.0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
-q = redundancy_resolution([eye(3) p_goal+.2;0 0 0 1],zeros(1,7));
+q = redundancy_resolution([eye(3) p_goal;0 0 0 1],...
+    [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4])
 %q = [0;0;0;0;0;0;0];
 %[-2.5;0;-.5;1.5;-1.25;1;1];
 qmin=-5;
@@ -30,7 +31,9 @@ d = [p_goal-t;0;0;0];
 % A=[cos(u1i) cos(u1i) cos(u1i) sin(u1i) sin(u1i) 0 0 0;
 %     ];
 w=100*ones(3,1);
-delta_q = lsqlin(C,d,[],[],[],[],[],[]);
+delta_q = lsqlin(C,d,[],[],[],[],[],[]);%...
+%     [-pi -pi/4 -pi -pi -pi -pi -2*pi]'-q,...
+%     [pi pi pi/3 0 pi pi 0]'-q);
 q = q + delta_q;
 pause(.1);
 [TT,~,~,~]=FK_space(q,2);
