@@ -5,7 +5,8 @@ close all
 p_goal = [0;0.5;0]; %Goal for p_tip to move to (in space frame)
 radius = .0001; %Acceptable radius from p_goal
 p_tip = [0.0;0.0;0.1]; %Ptip coordinates (last frame of the robot chain)
-q = redundancy_resolution([eye(3) p_goal+.1;0 0 0 1],zeros(1,7))
+q = redundancy_resolution([eye(3) p_goal+.1;0 0 0 1],...
+    [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4]);
 %q = [0;0;0;0;0;0;0]; %initial theta values
 [TT,~,~,~]=FK_space(q,1);
 
