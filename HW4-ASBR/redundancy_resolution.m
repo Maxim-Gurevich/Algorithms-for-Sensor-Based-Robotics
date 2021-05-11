@@ -21,11 +21,11 @@ eps_omega=.0001;
 eps_v=.0001;
 mem_w=0;
 mem_q=0;
-k=1;
+k=10;
 theta=transpose(theta);
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     [T,~,~,~]=FK_body(theta,0);
-    pause(.3);
+    %pause(.3);
     J_b=J_body(theta,2);
     title('redundancy resolution')
     

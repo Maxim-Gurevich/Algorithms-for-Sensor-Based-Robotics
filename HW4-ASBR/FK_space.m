@@ -9,6 +9,7 @@ function [T_s,S,S_matrix,M]=FK_space(theta,graph)
 % Author: Maxim
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [rpy,xyz,axis_xyz]=config();
+p_tip = [0.0;0.0;0.1];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %determines M for all joints
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,14 +60,16 @@ for i=1:length(theta)
     positions(i,:)=[T_s(1,4,i) T_s(2,4,i) T_s(3,4,i)];
 end
 
-orientations(:,:,i+1)=inv(T_s(1:3,1:3,i));
-positions(i+1,:)=[T_s(1,4,i) T_s(2,4,i) T_s(3,4,i)];
+orientations(:,:,i+1)=orientations(:,:,i);
+t=T_s(:,:,7)*[p_tip;1];
+t=t(1:3,:);
+positions(i+1,:)=t;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %plot
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 labels={};
-for i=1:length(theta)
+for i=1:length(theta)+1
     labels{end+1} = num2str(i);
 end
 if graph==1
