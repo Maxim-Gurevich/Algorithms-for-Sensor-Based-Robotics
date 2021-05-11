@@ -27,7 +27,7 @@ switch mode
         %labels={'0,0,0';'\theta/4';'\theta/2';...
             %'3\theta/4';'\theta'};
         plotOrientation(op,orientations,positions,labels);
-    case 'points' %input:orientations,positions,labels
+    case 'points' %input:aray of points
         plotTrajectory(trajPlotter,varargin{1})
     otherwise
         error('invalid input for "mode"')
