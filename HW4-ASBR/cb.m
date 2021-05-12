@@ -4,7 +4,7 @@ close all
 
 p_goal = [0.2;0.4;0.3];%Goal for p_tip to move to (in space frame)
 p_tip = [0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
-p_start = [0.2;0.4;0.299]-p_tip;
+p_start = [0.2;0.4;0.2]-p_tip;
 plane_point=[0 0 10];
 plane_normal=[0 0 -1];
 radius = .001; %Acceptable radius from p_goal
@@ -38,7 +38,7 @@ while (norm(t-p_goal) > radius)&&(i<100)
     w=[plane_normal]*[plane_point-t']';
     qmin=limits(1,:)'-q;
     qmax=limits(2,:)'-q;
-    delta_q = lsqlin(C,d,[],[],[],[],qmin,qmax);
+    delta_q = lsqlin(C,d,[],[],[],[],[],[]);
     A*delta_q-w
     q = q + delta_q;
     pause(.1);
