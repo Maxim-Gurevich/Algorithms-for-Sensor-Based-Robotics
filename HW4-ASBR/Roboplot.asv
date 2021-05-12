@@ -19,6 +19,7 @@ switch mode
         trajPlotter=trajectoryPlotter(tp,...
             'DisplayName','Ellipsoid Axes', 'Linewidth', 1,...
             'color', 'm');
+        patch([.1 -1 -1 1], [.1 .1 -.1 -.1], [10 10 10 10])
     case 'frames' %input:orientations,positions,labels
         %plot body frames
         orientations=varargin{1};

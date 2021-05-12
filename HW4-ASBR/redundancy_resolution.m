@@ -71,7 +71,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     theta=theta+pinv(J_b)*V_b+(eye(7)-pinv(J_b)*J_b)*qdot_0;
     for o=1:length(theta)
         limits=[-pi -pi/4 -pi -pi -pi -pi -2*pi;
-            pi pi pi/3 0 pi pi 0];
+            pi 2*pi pi/3 0 pi pi 0];
         if theta(o)<limits(1,o)
             theta(o)=limits(1,o);
         end
