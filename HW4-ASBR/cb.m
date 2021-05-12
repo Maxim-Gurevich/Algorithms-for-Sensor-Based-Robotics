@@ -5,8 +5,8 @@ close all
 p_goal = [0.2;0.4;0.3];%Goal for p_tip to move to (in space frame)
 p_tip = [0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
 p_start = [0.2;0.4;0.299]-p_tip;
-plane_point=[0 0 0];
-plane_normal=[0 0 1];
+plane_point=[0 0 10];
+plane_normal=[0 0 -1];
 radius = .001; %Acceptable radius from p_goal
 q = redundancy_resolution([eye(3) p_start;0 0 0 1],...
     [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4]);
@@ -32,13 +32,13 @@ while (norm(t-p_goal) > radius)&&(i<100)
     t_skew = [0 -t(3) t(2); t(3) 0 -t(1); -t(2) t(1) 0];
     Rz_skew=[0 -Rz(3) Rz(2); -Rz(3) 0 -Rz(1); -Rz(2) Rz(1) 0];
     C = [1*(-t_skew*J_b(1:3,:) + J_b(4:6,:));
-        1*(-Rz_skew*J_b(1:3,:)) 0 0 0];
-    d = [p_goal-t;0;0;0];
-    A = plane_normal*J_b(4:6,:);
+        1*(-Rz_skew*J_b(1:3,:))];
+    d=[p_goal-t;0;0;0];
+    A=[plane_normal]*[J_b(4:6,:)];
     w=[plane_normal]*[plane_point-t']';
     qmin=limits(1,:)'-q;
     qmax=limits(2,:)'-q;
-    delta_q = lsqlin(C,d,[],[],A,w,[],[]);
+    delta_q = lsqlin(C,d,[],[],[],[],qmin,qmax);
     A*delta_q-w
     q = q + delta_q;
     pause(.1);
