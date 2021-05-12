@@ -20,7 +20,6 @@ J_b = J_body(q,0);
 t_skew = -1.*[0 -t(3) t(2); t(3) 0 -t(1); -t(2) t(1) 0];
 C = t_skew*J_b(1:3,:) + J_b(4:6,:);
 d = p_goal - t;
-
 delta_q = lsqlin(C,d,[],[],[],[],[],[]);%...
 %    (-2*pi-q),(2*pi-q));
 q = q + delta_q;
