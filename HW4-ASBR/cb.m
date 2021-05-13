@@ -1,7 +1,13 @@
 clc
 clear all
 close all
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: lsqlin with plane constraint
+% Input: 
+% Output: 
+% Date:
+% Author: Maxim+Zahin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 p_goal = [0.2;0.4;0.3];%Goal for p_tip to move to (in space frame)
 p_tip = [0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
 p_start = [0.2;0.4;0.2]-p_tip;
