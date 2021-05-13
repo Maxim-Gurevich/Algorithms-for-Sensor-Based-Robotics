@@ -10,7 +10,7 @@ global tp op trajPlotter
 switch mode
     case 'init' %input:display name,
         %initialize theater (canvas on which objects are plotted)
-        size=.5;
+        %size=.5;
         tp = theaterPlot('XLimit',[-1 1],...
             'YLimit',[-1 1],'ZLimit',[-1 1]);
         op = orientationPlotter(tp,'DisplayName',varargin{1},...

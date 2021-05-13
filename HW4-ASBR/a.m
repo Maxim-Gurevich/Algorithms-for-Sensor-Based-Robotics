@@ -28,7 +28,7 @@ C = t_skew*J_b(1:3,:) + J_b(4:6,:);
 d = p_goal - t;
 delta_q = lsqlin(C,d,[],[],[],[],[],[]);%...
 %    (-2*pi-q),(2*pi-q));
-q = q + delta_q;
+q = q + delta_q
 [TT,~,~,~]=FK_space(q,2);
 %J_inverse_kinematics(TT(:,:,6),q_o);
 
