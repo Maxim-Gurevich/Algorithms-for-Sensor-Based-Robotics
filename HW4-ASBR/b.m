@@ -1,16 +1,19 @@
-clc
-clear all
-close all
-
-p_goal = [0;0.4;0.1]; %Goal for p_tip to move to (in space frame)
-radius = .001; %Acceptable radius from p_goal
-p_tip = [0.0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
+function []=b(p_start,p_goal)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: uses lsqlin to move robot to point
+% Input:
+% Output:
+% Date:
+% Author: Maxim+Zahin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%p_goal = [0;0.5;0]; %Goal for p_tip to move to (in space frame)
+radius = .0001; %Acceptable radius from p_goal
+p_tip = [0.0;0.0;0.1]; %Ptip coordinates (last frame of the robot chain)
+p_start = p_start-p_tip;
 q = redundancy_resolution([eye(3) p_goal+.1;0 0 0 1],...
     [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4])
 %q = [0;0;0;0;0;0;0];
 %[-2.5;0;-.5;1.5;-1.25;1;1];
-qmin=-5;
-qmax=5;
 [TT,~,~,~]=FK_space(q,1);
 [Tb,~,~,~]=FK_body(q,0);
 

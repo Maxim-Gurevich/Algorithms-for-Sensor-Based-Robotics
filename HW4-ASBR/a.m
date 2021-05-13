@@ -1,6 +1,6 @@
 function []=a(p_start,p_goal)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: uses lsqlin to move probot to point
+% Description: uses lsqlin to move robot to point
 % Input:
 % Output:
 % Date:
