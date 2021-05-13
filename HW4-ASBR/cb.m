@@ -2,10 +2,13 @@ clc
 clear all
 close all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: lsqlin with plane constraint
-% Input: 
-% Output: 
-% Date:
+% Description: uses lsqlin to move robot to point given 3 contraints
+% (joints ee orientation and plane boundary)
+% Input: update p_start,p_goal,plane_point, plane_normal
+% Output: Simulation of arm from p_tip to p_goal (3mm of goal) given joint
+% constraints,ee orientation,
+% and plane boundary.
+% Date: 5/13/21
 % Author: Maxim+Zahin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 p_goal = [0.2;0.4;0.0];%Goal for p_tip to move to (in space frame)
@@ -21,7 +24,7 @@ limits=[-pi -pi/4 -pi -pi -pi -pi -2*pi;
     pi 2*pi pi/3 0 pi pi 0];
 %plot plane
 patch([.1 -.1 -.1 .1], [.1 .1 -.1 -.1],...
-    [0 0 0 0],[0 0 0 0])
+    [.5 .5 .5 .5],[0 0 0 0])
 
 [Tb,~,~,~]=FK_body(q,0);
 t = TT(:,:,7)*[p_tip;1];
