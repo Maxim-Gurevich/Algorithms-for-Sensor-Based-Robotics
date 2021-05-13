@@ -11,7 +11,7 @@ function theta=redundancy_resolution(T_sd,theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %theta=[0;0;0;0;0;0;.2];
-[T,B1,B_matrix,M]=FK_body(theta,1);%to initiate graph
+[~,~,~,~]=FK_body(theta,0);%to initiate graph
 %[J_b]=J_body(theta,0);
 %T_sd=M(:,:,end)
 i=0;
@@ -26,8 +26,8 @@ theta=transpose(theta);
 while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
     [T,~,~,~]=FK_body(theta,0);
     pause(.3);
-    J_b=J_body(theta,2);
-    title('redundancy resolution')
+    J_b=J_body(theta,0);
+    %title('redundancy resolution')
     
     %     %elipsoid calculation
     [l,vec_dir] = ellipsoid_plot_linear(J_b);
@@ -59,7 +59,7 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
             line_3(1:3,end+1)=new_point(1:3);
         end
     end
-    Roboplot('points', {line_1.',line_2.',line_3.'})
+    %Roboplot('points', {line_1.',line_2.',line_3.'})
     T_bd=inv(T)*T_sd;
     V_b_matrix=logm(T_bd);
     v_b=[V_b_matrix(3,2); V_b_matrix(1,3); V_b_matrix(2,1)];
@@ -79,8 +79,8 @@ while (norm(omega_b)>eps_omega || norm(v_b) > eps_v) && i<100
             theta(o)=limits(2,o);
         end
     end
-    theta
-    i=i+1
+    theta;
+    i=i+1;
 end
 if i==100
     error('theta could not converge')
