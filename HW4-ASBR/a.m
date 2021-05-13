@@ -1,11 +1,15 @@
-clc
-clear all
-close all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Plotter
+% Input: plot mode followed by additional data (specific to mode)
+% Output: new plot or new features inside exsisting plot
+% Date: 3/30/21
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function []=a(p_goal, p_start)
-p_goal = [0;0.5;0]; %Goal for p_tip to move to (in space frame)
+%p_goal = [0;0.5;0]; %Goal for p_tip to move to (in space frame)
 radius = .0001; %Acceptable radius from p_goal
 p_tip = [0.0;0.0;0.1]; %Ptip coordinates (last frame of the robot chain)
-p_start = [0.2;0.4;0.299]-p_tip;
+%p_start = [0.2;0.4;0.299]-p_tip;
 q = redundancy_resolution([eye(3) p_start;0 0 0 1],...
     [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4]);
 %q = [0;0;0;0;0;0;0]; %initial theta values

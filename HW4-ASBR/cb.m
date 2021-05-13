@@ -1,7 +1,13 @@
 clc
 clear all
 close all
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description: Plotter
+% Input: plot mode followed by additional data (specific to mode)
+% Output: new plot or new features inside exsisting plot
+% Date: 3/30/21
+% Author: Maxim
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 p_goal = [0.2;0.4;0.3];%Goal for p_tip to move to (in space frame)
 p_tip = [0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
 p_start = [0.2;0.4;0.299]-p_tip;
