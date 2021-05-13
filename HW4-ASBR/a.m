@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Description: Plotter
-% Input: plot mode followed by additional data (specific to mode)
-% Output: new plot or new features inside exsisting plot
-% Date: 3/30/21
-% Author: Maxim
+% Description: uses lsqlin to move probot to point
+% Input:
+% Output:
+% Date:
+% Author: Maxim+Zahin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function []=a(p_goal, p_start)
 %p_goal = [0;0.5;0]; %Goal for p_tip to move to (in space frame)
