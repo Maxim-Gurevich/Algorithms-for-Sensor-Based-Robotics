@@ -7,7 +7,7 @@ function []=b(p_start,p_goal)
 % Author: Maxim+Zahin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %p_goal = [0;0.5;0]; %Goal for p_tip to move to (in space frame)
-radius = .001; %Acceptable radius from p_goal
+radius = .0001; %Acceptable radius from p_goal
 p_tip = [0.0;0.0;0.1]; %Ptip coordinates (last frame of the robot chain)
 p_start = p_start-p_tip;
 q = redundancy_resolution([eye(3) p_start;0 0 0 1],...
@@ -39,7 +39,6 @@ delta_q = lsqlin(C,d,A,w,[],[],[],[]);
 q = q + delta_q;
 pause(.1);
 [TT,~,~,~]=FK_space(q,2);
-[Tb,~,~,~]=FK_body(q,0);
 t = TT(:,:,7)*[p_tip;1];
 t = t(1:3,:);
 error=norm(t-p_goal)
