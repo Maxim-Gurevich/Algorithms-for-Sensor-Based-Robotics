@@ -10,8 +10,8 @@ close all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 p_goal = [0.2;0.4;0.3];%Goal for p_tip to move to (in space frame)
 p_tip = [0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
-p_start = [0.2;0.4;0.7]-p_tip;
-plane_point=[0 0 0];
+p_start = [0.2;0.4;]-p_tip;
+plane_point=[0 0 .4];
 plane_normal=[0 0 -1];
 radius = .003; %Acceptable radius from p_goal
 q = redundancy_resolution([eye(3) p_start;0 0 0 1],...
