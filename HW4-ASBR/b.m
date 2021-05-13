@@ -10,8 +10,8 @@ function []=b(p_start,p_goal)
 radius = .0001; %Acceptable radius from p_goal
 p_tip = [0.0;0.0;0.1]; %Ptip coordinates (last frame of the robot chain)
 p_start = p_start-p_tip;
-q = redundancy_resolution([eye(3) p_goal+.1;0 0 0 1],...
-    [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4])
+q = redundancy_resolution([eye(3) p_start;0 0 0 1],...
+    [2 2.5 -1.7 -1.5 0.3 -1.5 -2.4]);
 %q = [0;0;0;0;0;0;0];
 %[-2.5;0;-.5;1.5;-1.25;1;1];
 [TT,~,~,~]=FK_space(q,1);
@@ -22,7 +22,6 @@ t = t(1:3,:);
 
 i=0;
 while (norm(t-p_goal) > radius)&&(i<100)
-J_s = J_space(q,0);
 J_b = J_body(q,0);
 R=Tb(1:3,1:3,1);
 Rz=R*[0;0;1];
@@ -47,5 +46,6 @@ t = TT(:,:,7)*[p_tip;1];
 t = t(1:3,:);
 norm(t-p_goal)
 i=i+1
+end
 end
 
