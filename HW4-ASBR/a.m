@@ -35,6 +35,5 @@ t = TT(:,:,7)*[p_tip;1];
 t = t(1:3,:);
 norm(t-p_goal)
 i = i+1
-
 end
 
