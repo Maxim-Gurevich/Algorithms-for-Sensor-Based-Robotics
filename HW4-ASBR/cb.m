@@ -8,10 +8,10 @@ close all
 % Date:
 % Author: Maxim+Zahin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-p_goal = [0.2;0.4;0.3];%Goal for p_tip to move to (in space frame)
+p_goal = [0.2;0.4;0.0];%Goal for p_tip to move to (in space frame)
 p_tip = [0;0;0.1]; %Ptip coordinates (last frame of the robot chain)
 p_start = [0.2;0.4;0.7]-p_tip;
-plane_point=[0 0 0];
+plane_point=[0 0 0.5];
 plane_normal=[0 0 -1];
 radius = .003; %Acceptable radius from p_goal
 q = redundancy_resolution([eye(3) p_start;0 0 0 1],...
@@ -21,7 +21,7 @@ limits=[-pi -pi/4 -pi -pi -pi -pi -2*pi;
     pi 2*pi pi/3 0 pi pi 0];
 %plot plane
 patch([.1 -.1 -.1 .1], [.1 .1 -.1 -.1],...
-    [1 1 1 1],[0 0 0 0])
+    [0 0 0 0],[0 0 0 0])
 
 [Tb,~,~,~]=FK_body(q,0);
 t = TT(:,:,7)*[p_tip;1];
